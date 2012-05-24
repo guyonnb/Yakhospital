@@ -4,3 +4,11 @@
 *.jar
 *.war
 *.ear
+
+/Yaki/nbproject/private/
+/YakHospitalHibernate/nbproject/private/
+*.orig
+YakHospitalHibernate/lib/*
+/YakHospitalHibernate/dist/
+YakHospitalHibernate/build/*
+
