@@ -38,6 +38,11 @@ public class PosteService {
         return PosteDAOImpl.getInstance().delete(idPoste);
     }
     
+    public Boolean supprimerPoste(Poste poste) 
+    {
+        return PosteDAOImpl.getInstance().delete(poste.getIdPoste());
+    }
+    
     public List<Poste> getAllPostes()
     {
         return PosteDAOImpl.getInstance().list();

@@ -40,12 +40,11 @@ public class Patient implements Serializable {
         this.prenom_patient = prenom_patient;
         this.nss = nss;
     }
-    
-    public Patient(Integer id_patient, String nom_patient, String prenom_patient,
+
+    public Patient(String nom_patient, String prenom_patient,
             String nss, Integer num_rue, String rue, String cp,
             String ville, String sexe, Calendar naissance, String tel,
             String tel_urgence, String note) {
-        this.idPatient = id_patient;
         this.nom_patient = nom_patient;
         this.prenom_patient = prenom_patient;
         this.nss = nss;
@@ -60,11 +59,10 @@ public class Patient implements Serializable {
         this.note = note;
     }
 
-    public Patient(Integer id_patient, String nom_patient, String prenom_patient,
+    public Patient(String nom_patient, String prenom_patient,
             String nss, Integer num_rue, String rue, String cp,
             String ville, String sexe, Calendar naissance, String tel,
             String tel_urgence, String note, Set<Sejour> sejours) {
-        this.idPatient = id_patient;
         this.nom_patient = nom_patient;
         this.prenom_patient = prenom_patient;
         this.nss = nss;
@@ -85,7 +83,9 @@ public class Patient implements Serializable {
     }
 
     public void setCp(String cp) {
-        this.cp = cp;
+        if (!this.cp.equals(cp)) {
+            this.cp = cp;
+        }
     }
 
     @Id
@@ -95,7 +95,9 @@ public class Patient implements Serializable {
     }
 
     public void setIdPatient(Integer idPatient) {
-        this.idPatient = idPatient;
+        if (this.idPatient != idPatient) {
+            this.idPatient = idPatient;
+        }
     }
 
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -104,7 +106,9 @@ public class Patient implements Serializable {
     }
 
     public void setNaissance(Calendar naissance) {
-        this.naissance = naissance;
+        if (this.naissance != naissance) {
+            this.naissance = naissance;
+        }
     }
 
     public String getNom_patient() {
@@ -112,7 +116,9 @@ public class Patient implements Serializable {
     }
 
     public void setNom_patient(String nom_patient) {
-        this.nom_patient = nom_patient;
+        if (!this.nom_patient.equals(nom_patient)) {
+            this.nom_patient = nom_patient;
+        }
     }
 
     public String getNote() {
@@ -120,7 +126,9 @@ public class Patient implements Serializable {
     }
 
     public void setNote(String note) {
-        this.note = note;
+        if (!this.note.equals(note)) {
+            this.note = note;
+        }
     }
 
     public String getNss() {
@@ -128,7 +136,9 @@ public class Patient implements Serializable {
     }
 
     public void setNss(String nss) {
-        this.nss = nss;
+        if (!this.nss.equals(nss)) {
+            this.nss = nss;
+        }
     }
 
     public Integer getNumero_rue() {
@@ -136,7 +146,9 @@ public class Patient implements Serializable {
     }
 
     public void setNumero_rue(Integer numero_rue) {
-        this.numero_rue = numero_rue;
+        if (this.numero_rue != numero_rue) {
+            this.numero_rue = numero_rue;
+        }
     }
 
     public String getPrenom_patient() {
@@ -144,7 +156,9 @@ public class Patient implements Serializable {
     }
 
     public void setPrenom_patient(String prenom_patient) {
-        this.prenom_patient = prenom_patient;
+        if (!this.prenom_patient.equals(prenom_patient)) {
+            this.prenom_patient = prenom_patient;
+        }
     }
 
     public String getRue() {
@@ -152,7 +166,9 @@ public class Patient implements Serializable {
     }
 
     public void setRue(String rue) {
-        this.rue = rue;
+        if (!this.rue.equals(rue)) {
+            this.rue = rue;
+        }
     }
 
     public String getSexe() {
@@ -160,7 +176,9 @@ public class Patient implements Serializable {
     }
 
     public void setSexe(String sexe) {
-        this.sexe = sexe;
+        if (!this.sexe.equals(sexe)) {
+            this.sexe = sexe;
+        }
     }
 
     public String getTel() {
@@ -168,7 +186,9 @@ public class Patient implements Serializable {
     }
 
     public void setTel(String tel) {
-        this.tel = tel;
+        if (!this.tel.equals(tel)) {
+            this.tel = tel;
+        }
     }
 
     public String getTel_urgence() {
@@ -176,7 +196,9 @@ public class Patient implements Serializable {
     }
 
     public void setTel_urgence(String tel_urgence) {
-        this.tel_urgence = tel_urgence;
+        if (!this.tel_urgence.equals(tel_urgence)) {
+            this.tel_urgence = tel_urgence;
+        }
     }
 
     public String getVille() {
@@ -184,7 +206,9 @@ public class Patient implements Serializable {
     }
 
     public void setVille(String ville) {
-        this.ville = ville;
+        if (!this.ville.equals(ville)) {
+            this.ville = ville;
+        }
     }
 
     @OneToMany(mappedBy = "patient")
@@ -196,5 +220,10 @@ public class Patient implements Serializable {
 
     public void setSejours(Set<Sejour> sejours) {
         this.sejours = sejours;
+    }
+    
+    public void ajouterSejour(Sejour sejour)
+    {
+        sejours.add(sejour);
     }
 }

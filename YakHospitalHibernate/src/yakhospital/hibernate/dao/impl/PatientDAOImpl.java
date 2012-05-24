@@ -9,6 +9,7 @@ import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import yakhospital.hibernate.HibUtil;
 import yakhospital.hibernate.Patient;
+import yakhospital.hibernate.Sejour;
 import yakhospital.hibernate.dao.PatientDAO;
 
 /**
@@ -127,5 +128,33 @@ public class PatientDAOImpl implements PatientDAO {
         {
             return false;
         }
+    }
+
+//    @Override
+// En cours
+//    public Sejour getSejourEnCours(Integer idPatient) {
+//        try
+//        {
+//            Session sess = HibUtil.getSessionFactory().
+//            getCurrentSession();
+//            String req = "SELECT sejour FROM patient, sejour "
+//                    + "WHERE patient.id = sejour.id"
+//                    + "AND patient.id=:idPatient"
+//                    + "AND sejour.status = 1";
+//            Transaction t = sess.beginTransaction();
+//            Query q = sess.createQuery(req);
+//            q.setInteger("idPatient", idPatient.intValue());
+//            int rowcount = q.executeUpdate();
+//            t.commit();
+//            
+//        }
+//        catch (HibernateException e)
+//        {
+//        }
+//    }
+
+    @Override
+    public Sejour getSejourEnCours(Integer idPatient) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

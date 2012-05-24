@@ -97,4 +97,8 @@ public class Sejour implements Serializable {
     public void setSoins(Set<Soin> lst_soins) {
         this.soins = lst_soins;
     }
+
+    public void ajouterSoin(Soin soin) {
+        this.soins.add(soin);
+    }
 }

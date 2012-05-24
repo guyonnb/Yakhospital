@@ -6,6 +6,7 @@ package yakhospital.hibernate.dao;
 
 import java.util.List;
 import yakhospital.hibernate.Patient;
+import yakhospital.hibernate.Sejour;
 
 /**
  *
@@ -17,4 +18,6 @@ public interface PatientDAO {
     public Integer save(Patient patient);
     public Boolean update(Patient patient);
     public Boolean delete(Integer id);
+
+    public Sejour getSejourEnCours(Integer idPatient);
 }
