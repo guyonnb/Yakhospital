@@ -5,8 +5,6 @@
 package yakhospital.service;
 
 import java.util.List;
-import org.hibernate.Session;
-import yakhospital.hibernate.HibUtil;
 import yakhospital.hibernate.Poste;
 import yakhospital.hibernate.dao.impl.PosteDAOImpl;
 
