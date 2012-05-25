@@ -18,7 +18,11 @@ public class SejourService {
     private SejourService() {
     }
 
-    static Sejour creerSejour(String raisonAdmission, boolean b, Calendar dateDebut, Patient p) {
+    static Sejour creerSejour(String raisonAdmission, Calendar dateDebut, Patient patient, Soin soin) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+    
+    static Sejour creerSejour(String raisonAdmission, Calendar dateDebut, Integer idPatient, Integer idSoin) {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
