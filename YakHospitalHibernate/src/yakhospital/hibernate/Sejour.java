@@ -28,10 +28,14 @@ public class Sejour implements Serializable {
     public Sejour() {
     }
 
-    public Sejour(Calendar date_debut, Calendar date_fin) {
+    public Sejour(String raison_admission, Calendar date_debut, Patient patient) {
+        this.raison_admission = raison_admission;
         this.date_debut = date_debut;
-        this.date_fin = date_fin;
+        this.patient = patient;
+        this.status = true;
     }
+
+   
 
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     public Calendar getDate_debut() {
