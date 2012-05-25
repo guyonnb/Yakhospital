@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name="type_soin")
 public class TypeSoin implements Serializable {
 
-    private Integer idTypeSoin;
+    private Integer id_type_soin;
     private String nom_soin;
 
     public TypeSoin() {
@@ -28,12 +28,12 @@ public class TypeSoin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ID_TYPE_SOIN")
-    public Integer getIdTypeSoin() {
-        return idTypeSoin;
+    public Integer getId_type_soin() {
+        return id_type_soin;
     }
 
-    public void setIdTypeSoin(Integer idTypeSoin) {
-        this.idTypeSoin = idTypeSoin;
+    public void setId_type_soin(Integer id_type_soin) {
+        this.id_type_soin = id_type_soin;
     }
 
     @Column(name="NOM_SOIN")

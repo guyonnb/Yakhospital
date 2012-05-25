@@ -17,29 +17,27 @@ import yakhospital.hibernate.dao.PatientDAO;
  * @author djenou_m
  */
 public class PatientDAOImpl implements PatientDAO {
- 
+
     // Instance de notre singleton
     private static final PatientDAOImpl instance = new PatientDAOImpl();
     // Constructeur prive du singleton
-    private PatientDAOImpl ()
-    {
+
+    private PatientDAOImpl() {
     }
-    
+
     // La methode pour recuperer le singleton
-    static public PatientDAO getInstance()
-    {
+    static public PatientDAO getInstance() {
         return instance;
     }
-    
+
     /*
-    * La methode pour recuperer un Patient selon l’ID avec Criteria
-    */
+     * La methode pour recuperer un Patient selon l’ID avec Criteria
+     */
     @Override
-    public Patient get(Integer id)
-    {
+    public Patient get(Integer id) {
         // On recupere la session
         Session sess = HibUtil.getSessionFactory().
-        getCurrentSession();
+                getCurrentSession();
         // On commence une transaction avec la base
         Transaction t = sess.beginTransaction();
         // On creer un critere suivant la classe Patient
@@ -54,12 +52,12 @@ public class PatientDAOImpl implements PatientDAO {
     }
 
     /*
-    * Recupere la liste des Patients
-    */
+     * Recupere la liste des Patients
+     */
     @Override
     public List<Patient> list() {
         Session sess = HibUtil.getSessionFactory().
-        getCurrentSession();
+                getCurrentSession();
         Transaction t = sess.beginTransaction();
         Criteria crit = sess.createCriteria(Patient.class);
         // On recupere la liste des Patients
@@ -67,15 +65,14 @@ public class PatientDAOImpl implements PatientDAO {
         t.commit();
         return list;
     }
-    
+
     /*
-    * Sauve un Patient
-    */
+     * Sauve un Patient
+     */
     @Override
-    public Integer save(Patient patient)
-    {
+    public Integer save(Patient patient) {
         Session sess = HibUtil.getSessionFactory().
-        getCurrentSession();
+                getCurrentSession();
         Transaction t = sess.beginTransaction();
         // On sauvegarde le Patient
         Integer id = (Integer) sess.save(patient);
@@ -84,77 +81,56 @@ public class PatientDAOImpl implements PatientDAO {
     }
 
     @Override
-    public Boolean update(Patient patient)
-    {
-        try
-        {
+    public Boolean update(Patient patient) {
+        try {
             Session sess = HibUtil.getSessionFactory().
-            getCurrentSession();
+                    getCurrentSession();
             Transaction t = sess.beginTransaction();
             // On met a jour le Patient
             sess.update(patient);
             t.commit();
             return true;
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             return false;
         }
     }
-    
+
     /*
-    * Exemple d’utilisation avec le HQL pour supprimer un Patient
-    */
+     * Exemple d’utilisation avec le HQL pour supprimer un Patient
+     */
     @Override
-    public Boolean delete(Integer id)
-    {
-        try
-        {
+    public Boolean delete(Integer id) {
+        try {
             Session sess = HibUtil.getSessionFactory().
-            getCurrentSession();
+                    getCurrentSession();
             String req = "Delete from patient where id=:id";
             Transaction t = sess.beginTransaction();
             Query q = sess.createQuery(req);
             q.setInteger("id", id.intValue());
             int rowcount = q.executeUpdate();
             t.commit();
-            
-            if (rowcount != 0)
+
+            if (rowcount != 0) {
                 return true;
-            
+            }
+
             return false;
-        }
-        catch (HibernateException e)
-        {
+        } catch (HibernateException e) {
             return false;
         }
     }
 
-//    @Override
-// En cours
-//    public Sejour getSejourEnCours(Integer idPatient) {
-//        try
-//        {
-//            Session sess = HibUtil.getSessionFactory().
-//            getCurrentSession();
-//            String req = "SELECT sejour FROM patient, sejour "
-//                    + "WHERE patient.id = sejour.id"
-//                    + "AND patient.id=:idPatient"
-//                    + "AND sejour.status = 1";
-//            Transaction t = sess.beginTransaction();
-//            Query q = sess.createQuery(req);
-//            q.setInteger("idPatient", idPatient.intValue());
-//            int rowcount = q.executeUpdate();
-//            t.commit();
-//            
-//        }
-//        catch (HibernateException e)
-//        {
-//        }
-//    }
-
     @Override
+    //En cours
     public Sejour getSejourEnCours(Integer idPatient) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Session sess = HibUtil.getSessionFactory().
+                getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Sejour.class);
+        crit.add(Restrictions.like("status", true));
+        crit.createCriteria("patient").add(Restrictions.like("id", idPatient));
+        Sejour sejour = (Sejour) crit.uniqueResult();
+        t.commit();
+        return sejour;
     }
 }

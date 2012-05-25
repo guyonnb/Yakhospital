@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import org.hibernate.Session;
+import yakhospital.hibernate.dao.impl.PatientDAOImpl;
 
 /**
  *
@@ -17,11 +18,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Patient p = new Patient("Dupont", "Jean", "1234567889123");
-
-        Session session = HibUtil.getSessionFactory().getCurrentSession();
-        org.hibernate.Transaction t = session.beginTransaction();
-        session.save(p);
-        t.commit();
+//        Patient p = new Patient("Dupont", "Jean", "1234567889123");
+//
+//        Session session = HibUtil.getSessionFactory().getCurrentSession();
+//        org.hibernate.Transaction t = session.beginTransaction();
+//        session.save(p);
+//        t.commit();
+        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(2);
+        System.out.println(sejour.getId_sejour());
     }
 }

@@ -17,7 +17,7 @@ import org.hibernate.annotations.Cascade;
 @Table(name="service")
 public class Service implements Serializable {
 
-    private Integer idService;
+    private Integer id_service;
     private String nom_service;
     private Set<Titulaire> titulaires;
     private Set<Salle> salles;
@@ -32,12 +32,12 @@ public class Service implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdService() {
-        return idService;
+    public Integer getId_service() {
+        return id_service;
     }
 
-    public void setIdService(Integer idService) {
-        this.idService = idService;
+    public void setId_service(Integer id_service) {
+        this.id_service = id_service;
     }
 
     public String getNom_service() {

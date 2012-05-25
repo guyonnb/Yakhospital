@@ -6,7 +6,9 @@ package yakhospital.service;
 
 import java.util.Calendar;
 import yakhospital.hibernate.*;
+import yakhospital.hibernate.dao.SejourDAO;
 import yakhospital.hibernate.dao.impl.PatientDAOImpl;
+import yakhospital.hibernate.dao.impl.SejourDAOImpl;
 import yakhospital.hibernate.dao.impl.TitulaireDAOImpl;
 import yakhospital.hibernate.dao.impl.TypeSoinDAOImpl;
 
@@ -22,16 +24,9 @@ public class PatientService {
     static Integer creerPatient(String nomPatient, String PrenomPatient,
             String nss, Integer numRue, String rue, String cp, String ville,
             String sexe, Calendar naissance, String tel, String telUrgence,
-            String note, String raisonAdmission, Calendar dateDebut,
-            Calendar dateDebutSoin, String commentaire, TypeSoin typeSoin,
-            Titulaire titulaire) {
+            String note, Sejour sejour) {
         Patient patient = new Patient(nomPatient, PrenomPatient, nss, numRue,
                 rue, cp, ville, sexe, naissance, tel, telUrgence, note);
-        Sejour sejour = SejourService.creerSejour(raisonAdmission, true,
-                dateDebut, patient);
-        Soin soin = SoinService.creerSoin(dateDebutSoin, commentaire,
-                sejour, typeSoin, titulaire);
-        sejour.ajouterSoin(soin);
         patient.ajouterSejour(sejour);
 
         return PatientDAOImpl.getInstance().save(patient);
@@ -40,17 +35,10 @@ public class PatientService {
     static Integer creerPatient(String nomPatient, String PrenomPatient,
             String nss, Integer numRue, String rue, String cp, String ville,
             String sexe, Calendar naissance, String tel, String telUrgence,
-            String note, String raisonAdmission, Calendar dateDebut,
-            Calendar dateDebutSoin, String commentaire, Integer idTypeSoin,
-            Integer idTitulaire) {
+            String note, Integer idSejour) {
         Patient patient = new Patient(nomPatient, PrenomPatient, nss, numRue,
                 rue, cp, ville, sexe, naissance, tel, telUrgence, note);
-        Sejour sejour = SejourService.creerSejour(raisonAdmission, true,
-                dateDebut, patient);
-        Soin soin = SoinService.creerSoin(dateDebutSoin, commentaire, sejour,
-                TypeSoinDAOImpl.getInstance().get(idTypeSoin),
-                TitulaireDAOImpl.getInstance().get(idTitulaire));
-        sejour.ajouterSoin(soin);
+        Sejour sejour = SejourDAOImpl.getInstance().get(idSejour);
         patient.ajouterSejour(sejour);
 
         return PatientDAOImpl.getInstance().save(patient);
@@ -103,27 +91,25 @@ public class PatientService {
     }
 
     static Boolean supprimerPatient(Patient patient) {
-        return PatientDAOImpl.getInstance().delete(patient.getIdPatient());
+        return PatientDAOImpl.getInstance().delete(patient.getId_patient());
     }
 
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
-    static void ajouterSejour(Patient patient, Sejour sejour, Soin soin) {
-        sejour.ajouterSoin(soin);
+    static void ajouterSejour(Patient patient, Sejour sejour) {
         patient.ajouterSejour(sejour);
         PatientDAOImpl.getInstance().update(patient);
     }
 
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
-    static void ajouterSejour(Integer idPatient, Sejour sejour, Soin soin) {
+    static void ajouterSejour(Integer idPatient, Sejour sejour) {
         Patient patient = PatientDAOImpl.getInstance().get(idPatient);
-        sejour.ajouterSoin(soin);
         patient.ajouterSejour(sejour);
         PatientDAOImpl.getInstance().update(patient);
     }
 
     // On ajoute toujours le soin au sejour en cours
     static void ajouterSoin(Patient patient, Soin soin) {
-        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(patient.getIdPatient());
+        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(patient.getId_patient());
         SejourService.ajouterSoin(sejour, soin);
     }
 

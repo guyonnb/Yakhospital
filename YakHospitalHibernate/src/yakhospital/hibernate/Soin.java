@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name="soin")
 public class Soin implements Serializable {
 
-    private Integer idSoin;
+    private Integer id_soin;
     private Calendar date_debut_soin;
     private Calendar date_fin_soin;
     private String commentaire;
@@ -54,12 +54,12 @@ public class Soin implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdSoin() {
-        return idSoin;
+    public Integer getId_soin() {
+        return id_soin;
     }
 
-    public void setIdSoin(Integer idSoin) {
-        this.idSoin = idSoin;
+    public void setId_soin(Integer id_soin) {
+        this.id_soin = id_soin;
     }
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Salle.class)
