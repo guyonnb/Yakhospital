@@ -54,7 +54,8 @@ public class Main {
         Sejour sejour7 = new Sejour("ulcère", date, p1);
         Sejour sejour8 = new Sejour("ulcère", date, p1);
         
-        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t1));
+        Soin soin1 = new Soin(date, "comment", ts1, t1);
+        sejour1.ajouterSoin(soin1);
         sejour1.ajouterSoin(new Soin(date, "comment", ts2, t2));
         sejour2.ajouterSoin(new Soin(date, "comment", ts3, t3));
         sejour2.ajouterSoin(new Soin(date, "comment", ts4, t4));

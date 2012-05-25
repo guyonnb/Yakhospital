@@ -6,6 +6,8 @@ package yakhospital.hibernate;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
 import javax.persistence.*;
 
 /**
@@ -30,6 +32,8 @@ public class Soin implements Serializable {
         this.commentaire = commentaire;
         this.typeSoin = typeSoin;
         this.titulaire = titulaire;
+        this.date_fin_soin = Calendar.getInstance();
+        this.date_fin_soin.set(1900, 1, 1);
     }
 
     public String getCommentaire() {
