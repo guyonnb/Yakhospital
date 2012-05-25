@@ -32,7 +32,6 @@ public class Soin implements Serializable {
         this.titulaire = titulaire;
     }
 
-    
     public String getCommentaire() {
         return commentaire;
     }

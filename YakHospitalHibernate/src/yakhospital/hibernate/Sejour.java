@@ -35,8 +35,6 @@ public class Sejour implements Serializable {
         this.status = true;
     }
 
-   
-
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     public Calendar getDate_debut() {
         return date_debut;

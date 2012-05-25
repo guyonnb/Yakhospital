@@ -5,12 +5,10 @@
 package yakhospital.service;
 
 import java.util.Calendar;
-import yakhospital.hibernate.*;
-import yakhospital.hibernate.dao.SejourDAO;
+import yakhospital.hibernate.Patient;
+import yakhospital.hibernate.Sejour;
+import yakhospital.hibernate.Soin;
 import yakhospital.hibernate.dao.impl.PatientDAOImpl;
-import yakhospital.hibernate.dao.impl.SejourDAOImpl;
-import yakhospital.hibernate.dao.impl.TitulaireDAOImpl;
-import yakhospital.hibernate.dao.impl.TypeSoinDAOImpl;
 
 /**
  *
@@ -24,22 +22,9 @@ public class PatientService {
     static Integer creerPatient(String nomPatient, String PrenomPatient,
             String nss, Integer numRue, String rue, String cp, String ville,
             String sexe, Calendar naissance, String tel, String telUrgence,
-            String note, Sejour sejour) {
+            String note) {
         Patient patient = new Patient(nomPatient, PrenomPatient, nss, numRue,
                 rue, cp, ville, sexe, naissance, tel, telUrgence, note);
-        patient.ajouterSejour(sejour);
-
-        return PatientDAOImpl.getInstance().save(patient);
-    }
-
-    static Integer creerPatient(String nomPatient, String PrenomPatient,
-            String nss, Integer numRue, String rue, String cp, String ville,
-            String sexe, Calendar naissance, String tel, String telUrgence,
-            String note, Integer idSejour) {
-        Patient patient = new Patient(nomPatient, PrenomPatient, nss, numRue,
-                rue, cp, ville, sexe, naissance, tel, telUrgence, note);
-        Sejour sejour = SejourDAOImpl.getInstance().get(idSejour);
-        patient.ajouterSejour(sejour);
 
         return PatientDAOImpl.getInstance().save(patient);
     }
@@ -109,14 +94,26 @@ public class PatientService {
 
     // On ajoute toujours le soin au sejour en cours
     static void ajouterSoin(Patient patient, Soin soin) {
-        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(patient.getId_patient());
+        Sejour sejour = PatientDAOImpl.getInstance()
+                .getSejourEnCours(patient.getId_patient());
         SejourService.ajouterSoin(sejour, soin);
     }
 
     // On ajoute toujours le soin au sejour en cours
     static void ajouterSoin(Integer idPatient, Soin soin) {
-        Patient patient = PatientDAOImpl.getInstance().get(idPatient);
         Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(idPatient);
-        sejour.ajouterSoin(soin);
+        SejourService.ajouterSoin(sejour, soin);
+    }
+    
+    static void cloturerSejourEnCours (Patient patient)
+    {
+        PatientDAOImpl.getInstance().getSejourEnCours(patient.getId_patient())
+                .setStatus(false);
+    }
+    
+    static void cloturerSejourEnCours (Integer idPatient)
+    {
+        PatientDAOImpl.getInstance().getSejourEnCours(idPatient)
+                .setStatus(false);
     }
 }

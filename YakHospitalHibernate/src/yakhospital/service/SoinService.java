@@ -5,10 +5,8 @@
 package yakhospital.service;
 
 import java.util.Calendar;
-import yakhospital.hibernate.Sejour;
-import yakhospital.hibernate.Soin;
-import yakhospital.hibernate.Titulaire;
-import yakhospital.hibernate.TypeSoin;
+import yakhospital.hibernate.*;
+import yakhospital.hibernate.dao.impl.SoinDAOImpl;
 
 /**
  *
@@ -19,8 +17,40 @@ public class SoinService {
     private SoinService() {
     }
 
-    static Soin creerSoin(Calendar dateDebutSoin, String commentaire, Sejour s, TypeSoin typeSoin, Titulaire titulaire) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    static Integer creerSoin(Calendar dateDebutSoin, String commentaire,
+                            Sejour s, TypeSoin typeSoin, Titulaire titulaire) {
+        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire);
+        
+        return SoinDAOImpl.getInstance().save(soin);
     }
-    
+    static Boolean modifierSoin (Soin soin, Calendar dateDebutSoin,
+                                 Calendar dateFinSoin,  String commentaire,
+                                 Sejour s, TypeSoin typeSoin, Titulaire titulaire,
+                                 Salle salle) {
+        soin.setDate_debut_soin(dateDebutSoin);
+        soin.setDate_fin_soin(dateFinSoin);
+        soin.setCommentaire(commentaire);
+        soin.setSalle(salle);
+        soin.setSejour(s);
+        soin.setTitulaire(titulaire);
+        soin.setTypeSoin(typeSoin);
+        
+        return SoinDAOImpl.getInstance().update(soin);
+    }
+    static Boolean modifierSoin (Integer id_soin, Calendar dateDebutSoin,
+                                 Calendar dateFinSoin,  String commentaire,
+                                 Sejour s, TypeSoin typeSoin, Titulaire titulaire,
+                                 Salle salle) {
+        Soin soin = SoinDAOImpl.getInstance().get(id_soin);
+        soin.setDate_debut_soin(dateDebutSoin);
+        soin.setDate_fin_soin(dateFinSoin);
+        soin.setCommentaire(commentaire);
+        soin.setSalle(salle);
+        soin.setSejour(s);
+        soin.setTitulaire(titulaire);
+        soin.setTypeSoin(typeSoin);
+        
+        return SoinDAOImpl.getInstance().update(soin);
+    }
+
 }
