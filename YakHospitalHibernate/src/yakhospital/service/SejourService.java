@@ -23,15 +23,14 @@ public class SejourService {
     }
 
     static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Patient patient, Soin soin) {
-        Sejour sejour = new Sejour(dateDebut, soin);
+        Sejour sejour = new Sejour(raisonAdmission, dateDebut, patient);
         sejour.ajouterSoin(soin);
-        sejour.setRaison_admission(raisonAdmission);
         return SejourDAOImpl.getInstance().save(sejour);
     }
     
     static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Integer idPatient, Integer idSoin) {
-        Sejour sejour = new Sejour(dateDebut, (SoinDAOImpl.getInstance().get(idSoin)));
-        sejour.setRaison_admission(raisonAdmission);
+        Sejour sejour = new Sejour(raisonAdmission, dateDebut, PatientDAOImpl.getInstance().get(idPatient));
+        sejour.ajouterSoin((SoinDAOImpl.getInstance().get(idSoin)));
         return SejourDAOImpl.getInstance().save(sejour);
     }
     
