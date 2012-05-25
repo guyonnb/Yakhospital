@@ -25,6 +25,12 @@ public class Soin implements Serializable {
     private TypeSoin typeSoin;
     private Titulaire titulaire;
 
+    public Soin(Calendar date_debut_soin, String commentaire, TypeSoin typeSoin, Titulaire titulaire) {
+        this.date_debut_soin = date_debut_soin;
+        this.commentaire = commentaire;
+        this.typeSoin = typeSoin;
+        this.titulaire = titulaire;
+    }
     
     public String getCommentaire() {
         return commentaire;
