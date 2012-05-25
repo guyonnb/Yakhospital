@@ -103,7 +103,7 @@ public class PatientService {
     }
 
     static Boolean supprimerPatient(Patient patient) {
-        return PatientDAOImpl.getInstance().delete(patient.getIdPatient());
+        return PatientDAOImpl.getInstance().delete(patient.getId_patient());
     }
 
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
@@ -123,7 +123,7 @@ public class PatientService {
 
     // On ajoute toujours le soin au sejour en cours
     static void ajouterSoin(Patient patient, Soin soin) {
-        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(patient.getIdPatient());
+        Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(patient.getId_patient());
         SejourService.ajouterSoin(sejour, soin);
     }
 

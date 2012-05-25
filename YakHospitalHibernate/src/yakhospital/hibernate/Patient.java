@@ -17,7 +17,7 @@ import org.hibernate.annotations.Cascade;
 @Entity // Specifie que la classe correspond a une table.
 public class Patient implements Serializable {
 
-    private Integer idPatient;
+    private Integer id_patient;
     private String nom_patient;
     private String prenom_patient;
     private String nss;
@@ -83,21 +83,21 @@ public class Patient implements Serializable {
     }
 
     public void setCp(String cp) {
-        if (!this.cp.equals(cp)) {
-            this.cp = cp;
+        if (this.cp != null) {
+            if (!this.cp.equals(cp)) {
+                this.cp = cp;
+            }
         }
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdPatient() {
-        return idPatient;
+    public Integer getId_patient() {
+        return id_patient;
     }
 
-    public void setIdPatient(Integer idPatient) {
-        if (this.idPatient != idPatient) {
-            this.idPatient = idPatient;
-        }
+    public void setId_patient(Integer id_patient) {
+        this.id_patient = id_patient;
     }
 
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -106,8 +106,10 @@ public class Patient implements Serializable {
     }
 
     public void setNaissance(Calendar naissance) {
-        if (this.naissance != naissance) {
-            this.naissance = naissance;
+        if (this.naissance != null) {
+            if (this.naissance != naissance) {
+                this.naissance = naissance;
+            }
         }
     }
 
@@ -116,9 +118,7 @@ public class Patient implements Serializable {
     }
 
     public void setNom_patient(String nom_patient) {
-        if (!this.nom_patient.equals(nom_patient)) {
-            this.nom_patient = nom_patient;
-        }
+        this.nom_patient = nom_patient;
     }
 
     public String getNote() {
@@ -126,9 +126,7 @@ public class Patient implements Serializable {
     }
 
     public void setNote(String note) {
-        if (!this.note.equals(note)) {
-            this.note = note;
-        }
+        this.note = note;
     }
 
     public String getNss() {
@@ -136,9 +134,7 @@ public class Patient implements Serializable {
     }
 
     public void setNss(String nss) {
-        if (!this.nss.equals(nss)) {
-            this.nss = nss;
-        }
+        this.nss = nss;
     }
 
     public Integer getNumero_rue() {
@@ -146,9 +142,7 @@ public class Patient implements Serializable {
     }
 
     public void setNumero_rue(Integer numero_rue) {
-        if (this.numero_rue != numero_rue) {
-            this.numero_rue = numero_rue;
-        }
+        this.numero_rue = numero_rue;
     }
 
     public String getPrenom_patient() {
@@ -156,9 +150,7 @@ public class Patient implements Serializable {
     }
 
     public void setPrenom_patient(String prenom_patient) {
-        if (!this.prenom_patient.equals(prenom_patient)) {
-            this.prenom_patient = prenom_patient;
-        }
+        this.prenom_patient = prenom_patient;
     }
 
     public String getRue() {
@@ -166,9 +158,7 @@ public class Patient implements Serializable {
     }
 
     public void setRue(String rue) {
-        if (!this.rue.equals(rue)) {
-            this.rue = rue;
-        }
+        this.rue = rue;
     }
 
     public String getSexe() {
@@ -176,9 +166,7 @@ public class Patient implements Serializable {
     }
 
     public void setSexe(String sexe) {
-        if (!this.sexe.equals(sexe)) {
-            this.sexe = sexe;
-        }
+        this.sexe = sexe;
     }
 
     public String getTel() {
@@ -186,9 +174,7 @@ public class Patient implements Serializable {
     }
 
     public void setTel(String tel) {
-        if (!this.tel.equals(tel)) {
-            this.tel = tel;
-        }
+        this.tel = tel;
     }
 
     public String getTel_urgence() {
@@ -196,9 +182,7 @@ public class Patient implements Serializable {
     }
 
     public void setTel_urgence(String tel_urgence) {
-        if (!this.tel_urgence.equals(tel_urgence)) {
-            this.tel_urgence = tel_urgence;
-        }
+        this.tel_urgence = tel_urgence;
     }
 
     public String getVille() {
@@ -206,9 +190,7 @@ public class Patient implements Serializable {
     }
 
     public void setVille(String ville) {
-        if (!this.ville.equals(ville)) {
-            this.ville = ville;
-        }
+        this.ville = ville;
     }
 
     @OneToMany(mappedBy = "patient")
@@ -221,9 +203,8 @@ public class Patient implements Serializable {
     public void setSejours(Set<Sejour> sejours) {
         this.sejours = sejours;
     }
-    
-    public void ajouterSejour(Sejour sejour)
-    {
+
+    public void ajouterSejour(Sejour sejour) {
         sejours.add(sejour);
     }
 }

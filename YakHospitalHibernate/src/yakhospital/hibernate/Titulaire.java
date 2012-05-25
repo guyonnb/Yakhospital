@@ -16,7 +16,7 @@ import org.hibernate.annotations.Cascade;
 @Entity
 public class Titulaire implements Serializable {
 
-    private Integer idTitulaire;
+    private Integer id_titulaire;
     private String nom_titulaire;
     private String prenom_titulaire;
     private String num_pro;
@@ -36,8 +36,8 @@ public class Titulaire implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdTitulaire() {
-        return idTitulaire;
+    public Integer getId_titulaire() {
+        return id_titulaire;
     }
 
     public String getNom_titulaire() {
@@ -52,8 +52,8 @@ public class Titulaire implements Serializable {
         return prenom_titulaire;
     }
 
-    public void setIdTitulaire(Integer idTitulaire) {
-        this.idTitulaire = idTitulaire;
+    public void setId_titulaire(Integer id_titulaire) {
+        this.id_titulaire = id_titulaire;
     }
 
     public void setNom_titulaire(String nom_titulaire) {

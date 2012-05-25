@@ -17,7 +17,7 @@ import org.hibernate.annotations.Cascade;
 @Entity
 public class Sejour implements Serializable {
 
-    private Integer idSejour;
+    private Integer id_sejour;
     private String raison_admission;
     private boolean status;
     private Calendar date_debut;
@@ -53,12 +53,12 @@ public class Sejour implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdSejour() {
-        return idSejour;
+    public Integer getId_sejour() {
+        return id_sejour;
     }
 
-    public void setIdSejour(Integer idSejour) {
-        this.idSejour = idSejour;
+    public void setId_sejour(Integer id_sejour) {
+        this.id_sejour = id_sejour;
     }
 
     public String getRaison_admission() {

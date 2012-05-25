@@ -17,7 +17,7 @@ import org.hibernate.annotations.Cascade;
 // Specifie que la classe correspond a une table.
 public class Droit implements Serializable {
 
-    private Integer idDroit;
+    private Integer id_droit;
     private String description;
     private Set<Poste> postes;
 
@@ -38,12 +38,12 @@ public class Droit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdDroit() {
-        return idDroit;
+    public Integer getId_droit() {
+        return id_droit;
     }
 
-    public void setIdDroit(Integer idDroit) {
-        this.idDroit = idDroit;
+    public void setId_droit(Integer id_droit) {
+        this.id_droit = id_droit;
     }
 
     @ManyToMany(targetEntity = yakhospital.hibernate.Poste.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)

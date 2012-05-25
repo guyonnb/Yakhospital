@@ -16,7 +16,7 @@ import org.hibernate.annotations.Cascade;
 @Entity
 public class Poste implements Serializable {
 
-    private Integer idPoste;
+    private Integer id_poste;
     private String nom_poste;
     private Set<Titulaire> titulaires;
     private Set<Droit> droits;
@@ -30,12 +30,12 @@ public class Poste implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getIdPoste() {
-        return idPoste;
+    public Integer getId_poste() {
+        return id_poste;
     }
 
-    public void setIdPoste(Integer idPoste) {
-        this.idPoste = idPoste;
+    public void setId_poste(Integer id_poste) {
+        this.id_poste = id_poste;
     }
 
     public String getNom_poste() {
