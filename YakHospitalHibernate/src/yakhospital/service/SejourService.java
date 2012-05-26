@@ -22,45 +22,45 @@ public class SejourService {
     private SejourService() {
     }
 
-    static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Patient patient, Soin soin) {
+    public static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Patient patient, Soin soin) {
         Sejour sejour = new Sejour(raisonAdmission, dateDebut, patient);
         sejour.ajouterSoin(soin);
         return SejourDAOImpl.getInstance().save(sejour);
     }
     
-    static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Integer idPatient, Integer idSoin) {
+    public static Integer creerSejour(String raisonAdmission, Calendar dateDebut, Integer idPatient, Integer idSoin) {
         Sejour sejour = new Sejour(raisonAdmission, dateDebut, PatientDAOImpl.getInstance().get(idPatient));
         sejour.ajouterSoin((SoinDAOImpl.getInstance().get(idSoin)));
         return SejourDAOImpl.getInstance().save(sejour);
     }
     
-    static Boolean ajouterListeSoin(Sejour sejour, Set<Soin> soins)
+    public static Boolean ajouterListeSoin(Sejour sejour, Set<Soin> soins)
     {
         sejour.setSoins(soins);
         return SejourDAOImpl.getInstance().update(sejour);
     }
 
-    static Boolean ajouterSoin(Sejour sejour, Soin soin) {
+    public static Boolean ajouterSoin(Sejour sejour, Soin soin) {
         Set<Soin> soins = sejour.getSoins();
         soins.add(soin);
         sejour.setSoins(soins);
         return SejourDAOImpl.getInstance().update(sejour);
     }
     
-    static Boolean modifierSejour(Sejour sejour, String raisonAdmission)
+    public static Boolean modifierSejour(Sejour sejour, String raisonAdmission)
     {   
         sejour.setRaison_admission(raisonAdmission);
         return SejourDAOImpl.getInstance().update(sejour);
     }
     
-    static Boolean modifierSejour(Integer idSejour, String raisonAdmission)
+    public static Boolean modifierSejour(Integer idSejour, String raisonAdmission)
     {
         Sejour sejour = SejourDAOImpl.getInstance().get(idSejour);
         sejour.setRaison_admission(raisonAdmission);
         return SejourDAOImpl.getInstance().update(sejour);
     }
     
-    static Boolean cloturerSejour (Sejour sejour)
+    public static Boolean cloturerSejour (Sejour sejour)
     {
         sejour.setStatus(false);
         return SejourDAOImpl.getInstance().update(sejour);
