@@ -19,7 +19,7 @@ public class SoinService {
 
     static Integer creerSoin(Calendar dateDebutSoin, String commentaire,
                             Sejour s, TypeSoin typeSoin, Titulaire titulaire) {
-        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire);
+        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire, s);
         
         return SoinDAOImpl.getInstance().save(soin);
     }
