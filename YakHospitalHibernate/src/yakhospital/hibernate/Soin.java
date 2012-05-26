@@ -73,7 +73,7 @@ public class Soin implements Serializable {
         this.id_soin = id_soin;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Salle.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Salle.class)
     @JoinColumn(name = "id_salle")
     public Salle getSalle() {
         return salle;
@@ -93,7 +93,7 @@ public class Soin implements Serializable {
         this.sejour = sejour;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = TypeSoin.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = TypeSoin.class)
     @JoinColumn(name = "id_type_soin")
     public TypeSoin getTypeSoin() {
         return typeSoin;
@@ -103,7 +103,7 @@ public class Soin implements Serializable {
         this.typeSoin = typeSoin;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Titulaire.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Titulaire.class)
     @JoinColumn(name = "id_titulaire")
     public Titulaire getTitulaire() {
         return titulaire;

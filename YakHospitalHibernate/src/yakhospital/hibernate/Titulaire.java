@@ -79,7 +79,7 @@ public class Titulaire implements Serializable {
         this.mdp = mdp;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Poste.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Poste.class)
     @JoinColumn(name = "id_poste")
     public Poste getPoste() {
         return poste;
@@ -89,7 +89,7 @@ public class Titulaire implements Serializable {
         this.poste = poste;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Service.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Service.class)
     @JoinColumn(name = "id_service")
     public Service getService() {
         return service;

@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.hibernate.Session;
+import yakhospital.hibernate.dao.TypeSoinDAO;
+import yakhospital.hibernate.dao.impl.TypeSoinDAOImpl;
 
 /**
  *
  * @author djenou_m
  */
-public class Main {
+public class MainBase {
 
     /**
      * @param args the command line arguments
@@ -116,10 +118,17 @@ public class Main {
         /*
          * association sejour <-> soin
          */
-        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t2, sejour1));
-        sejour5.ajouterSoin(new Soin(date, "comment", ts2, t2, sejour5));
-        sejour2.ajouterSoin(new Soin(date, "comment", ts3, t3, sejour2));
-        sejour7.ajouterSoin(new Soin(date, "comment", ts4, t4, sejour7));
+
+        Soin soin1 = new Soin(date, "comment", ts1, t2, sejour1);
+        soin1.setSalle(s8);
+        Soin soin2 = new Soin(date, "comment", ts2, t2, sejour5);
+        Soin soin3 = new Soin(date, "comment", ts3, t3, sejour2);
+        Soin soin4 = new Soin(date, "comment", ts4, t4, sejour7);
+        
+        sejour1.ajouterSoin(soin1);
+        sejour5.ajouterSoin(soin2);
+        sejour2.ajouterSoin(soin3);
+        sejour7.ajouterSoin(soin4);
 
         /*
          * association patient <-> sejour
@@ -159,7 +168,6 @@ public class Main {
         for (Patient p : myList) {
             session.save(p);
         }
-
         t.commit();
     }
 }

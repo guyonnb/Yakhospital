@@ -60,7 +60,7 @@ public class Salle implements Serializable {
         this.nb_lits = nb_lits;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Service.class)
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Service.class)
     @JoinColumn(name = "id_service")
     public Service getService() {
         return service;
