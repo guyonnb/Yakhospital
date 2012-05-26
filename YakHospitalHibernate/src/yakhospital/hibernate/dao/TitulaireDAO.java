@@ -14,6 +14,9 @@ import yakhospital.hibernate.Titulaire;
 public interface TitulaireDAO {
     public List<Titulaire> list();
     public Titulaire get(Integer id);
+    public Titulaire getTitulaire (String numPro);
+    public Titulaire get(String nom, String prenom);
+    public List<Titulaire> get(String nom);
     public Integer save(Titulaire titulaire);
     public Boolean update(Titulaire titulaire);
     public Boolean delete(Integer id);

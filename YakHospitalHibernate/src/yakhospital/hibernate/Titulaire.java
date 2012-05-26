@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -29,6 +30,8 @@ public class Titulaire implements Serializable {
         this.nom_titulaire = nom_titulaire;
         this.prenom_titulaire = prenom_titulaire;
         this.num_pro = num_pro;
+        this.mdp = "";
+        this.soins = new HashSet<>();
     }
 
     public Titulaire() {
@@ -93,6 +96,7 @@ public class Titulaire implements Serializable {
     }
 
     public void setService(Service service) {
+        
         this.service = service;
     }
 
@@ -105,5 +109,9 @@ public class Titulaire implements Serializable {
 
     public void setSoins(Set<Soin> soins) {
         this.soins = soins;
+    }
+    
+    public void addSoin(Soin soin) {
+        this.soins.add(soin);
     }
 }
