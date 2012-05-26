@@ -89,7 +89,12 @@ public class Main {
         /*
          * assocition titulaire <-> poste
          */
-        t1.setPoste(posteMed);
+        t1.setPoste(posteAdmin);
+        t2.setPoste(posteMed);
+        t3.setPoste(posteChir);
+        t4.setPoste(posteAidSoi);
+        t5.setPoste(posteSecret);
+        t6.setPoste(posteInterne);
         
         /*
          * creation : de type de soim; sejour ;
@@ -111,7 +116,7 @@ public class Main {
         /*
          * association sejour <-> soin
          */
-        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t1, sejour1));
+        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t2, sejour1));
         sejour5.ajouterSoin(new Soin(date, "comment", ts2, t2, sejour5));
         sejour2.ajouterSoin(new Soin(date, "comment", ts3, t3, sejour2));
         sejour7.ajouterSoin(new Soin(date, "comment", ts4, t4, sejour7));
