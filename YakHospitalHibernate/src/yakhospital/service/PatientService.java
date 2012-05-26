@@ -89,6 +89,7 @@ public class PatientService {
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
     static void ajouterSejour(Integer idPatient, Sejour sejour) {
         Patient patient = PatientDAOImpl.getInstance().get(idPatient);
+        sejour.setPatient(patient);
         patient.ajouterSejour(sejour);
         PatientDAOImpl.getInstance().update(patient);
     }
