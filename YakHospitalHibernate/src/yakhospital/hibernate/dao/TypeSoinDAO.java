@@ -14,6 +14,7 @@ import yakhospital.hibernate.TypeSoin;
 public interface TypeSoinDAO {
     public List<TypeSoin> list();
     public TypeSoin get(Integer id);
+    public TypeSoin get(String nomSoin);
     public Integer save(TypeSoin typesoin);
     public Boolean update(TypeSoin typesoin);
     public Boolean delete(Integer id);

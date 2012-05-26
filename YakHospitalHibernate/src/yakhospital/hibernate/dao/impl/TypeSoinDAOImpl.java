@@ -54,6 +54,30 @@ public class TypeSoinDAOImpl implements TypeSoinDAO {
         return typesoin;
     }
 
+    
+    /*
+    * La methode pour recuperer un conducteur selon le nom du soin
+    */
+    @Override
+    public TypeSoin get(String nomSoin)
+    {
+        // On recupere la session
+        Session sess = HibUtil.getSessionFactory().
+        getCurrentSession();
+        // On commence une transaction avec la base
+        Transaction t = sess.beginTransaction();
+        // On creer un critere suivant la classe Driver
+        Criteria crit = sess.createCriteria(TypeSoin.class);
+        // On restreint ce critere suivant la valeur de le nom voulu
+        crit.add(Restrictions.eq("nom_soin", nomSoin));
+        // On ne veut et doit recuperer qu’un element
+        TypeSoin typesoin = (TypeSoin) crit.uniqueResult();
+        // On finalise la transaction
+        t.commit();
+        return typesoin;
+    }
+
+    
     /*
     * Recupere la liste des conducteurs
     */
