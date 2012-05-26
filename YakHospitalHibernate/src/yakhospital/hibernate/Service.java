@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -14,7 +15,7 @@ import org.hibernate.annotations.Cascade;
  * @author djenou_m
  */
 @Entity
-@Table(name="service")
+@Table(name = "service")
 public class Service implements Serializable {
 
     private Integer id_service;
@@ -28,6 +29,9 @@ public class Service implements Serializable {
 
     public Service(String nom_service) {
         this.nom_service = nom_service;
+        this.titulaires = new HashSet<>();
+        this.salles = new HashSet<>();
+        this.servicesComp = new HashSet<>();
     }
 
     @Id
@@ -76,8 +80,16 @@ public class Service implements Serializable {
 //    public Set<Service> getServicesComp() {
 //        return servicesComp;
 //    }
-
     public void setServicesComp(Set<Service> services_comp) {
         this.servicesComp = services_comp;
+    }
+
+    public void ajouterTitulaire(Titulaire titulaire) {
+        this.titulaires.add(titulaire);
+    }
+    
+    public void ajouterSalle (Salle salle)
+    {
+        this.salles.add(salle);
     }
 }

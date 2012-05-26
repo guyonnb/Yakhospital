@@ -15,46 +15,97 @@ import yakhospital.hibernate.dao.TitulaireDAO;
  *
  * @author djenou_m
  */
-public class TitulaireDAOImpl implements TitulaireDAO{
-  
+public class TitulaireDAOImpl implements TitulaireDAO{  
             
     // Instance de notre singleton
     private static final TitulaireDAOImpl instance = new TitulaireDAOImpl();
-    // Constructeur prive du singleton
+
     private TitulaireDAOImpl ()
     {
     }
     
-    // La methode pour recuperer le singleton
+    // Récupere le singleton
     static public TitulaireDAO getInstance()
     {
         return instance;
     }
 
     /*
-    * La methode pour recuperer un titulaire selon l’ID avec Criteria
+    * Recupere un titulaire selon son id
     */
     @Override
     public Titulaire get(Integer id)
     {
-        // On recupere la session
         Session sess = HibUtil.getSessionFactory().
         getCurrentSession();
-        // On commence une transaction avec la base
         Transaction t = sess.beginTransaction();
-        // On creer un critere suivant la classe Titulaire
         Criteria crit = sess.createCriteria(Titulaire.class);
         // On restreint ce critere suivant la valeur de l’id voulue
         crit.add(Restrictions.eq("id", id));
         // On ne veut et doit recuperer qu’un element
-        Titulaire Titulaire = (Titulaire) crit.uniqueResult();
-        // On finalise la transaction
+        Titulaire titulaire = (Titulaire) crit.uniqueResult();
         t.commit();
-        return Titulaire;
+        return titulaire;
     }
 
     /*
-    * Recupere la liste des titulaires
+    * Recupere un titulaire selon son num pro
+    */
+    @Override
+    public Titulaire getTitulaire(String numPro)
+    {
+        Session sess = HibUtil.getSessionFactory().
+        getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Titulaire.class);
+        // On restreint ce critere suivant la valeur du num. prof.
+        crit.add(Restrictions.eq("num_pro", numPro));
+        // On ne veut et doit recuperer qu’un element
+        Titulaire titulaire = (Titulaire) crit.uniqueResult();
+        t.commit();
+        return titulaire;
+    }
+
+    /*
+    * Recupere une liste de titulaires suivant un nom
+    */
+    @Override
+    public List<Titulaire> get(String nom)
+    {
+        Session sess = HibUtil.getSessionFactory().
+        getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Titulaire.class);
+        // On restreint ce critere suivant la valeur du nom
+        crit.add(Restrictions.eq("nom_titulaire", nom));
+        // On veut récuperer une liste de titulaires ayant ce nom
+        List<Titulaire> titulaires = crit.list();
+        t.commit();
+        return titulaires;
+    }
+    
+    /*
+    * Recupere un titulaire selon ses nom et prenom
+    */
+    @Override
+    public Titulaire get(String nom, String prenom)
+    {
+        Session sess = HibUtil.getSessionFactory().
+        getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Titulaire.class);
+        // On restreint ce critere suivant le nom ET le prenom
+        crit.add(Restrictions.eq("nom_titulaire", nom));
+        crit.add(Restrictions.eq("prenom_titulaire", prenom));
+        // On ne veut et doit recuperer qu’un element
+        Titulaire titulaire = (Titulaire) crit.uniqueResult();
+        t.commit();
+        return titulaire;
+    }
+    
+    
+    /*
+    * Renvoie la liste de tous les titulaires
     */
     @Override
     public List<Titulaire> list() {
@@ -83,6 +134,9 @@ public class TitulaireDAOImpl implements TitulaireDAO{
         return id;
     }
 
+    /*
+    * Met à jour un titulaire
+    */
     @Override
     public Boolean update(Titulaire Titulaire)
     {
@@ -98,13 +152,12 @@ public class TitulaireDAOImpl implements TitulaireDAO{
         }
         catch (HibernateException e)
         {
-            e.printStackTrace();
             return false;
         }
     }
     
     /*
-    * Exemple d’utilisation avec le HQL pour supprimer un titulaire
+    * Supprime un titulaire
     */
     @Override
     public Boolean delete(Integer id)
@@ -127,7 +180,6 @@ public class TitulaireDAOImpl implements TitulaireDAO{
         }
         catch (HibernateException e)
         {
-            e.printStackTrace();
             return false;
         }
     }

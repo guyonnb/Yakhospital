@@ -6,6 +6,7 @@ package yakhospital.hibernate;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -39,6 +40,7 @@ public class Patient implements Serializable {
         this.nom_patient = nom_patient;
         this.prenom_patient = prenom_patient;
         this.nss = nss;
+        this.sejours = new HashSet<>();
     }
 
     public Patient(String nom_patient, String prenom_patient,

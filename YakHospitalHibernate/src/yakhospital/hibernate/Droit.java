@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -26,6 +27,7 @@ public class Droit implements Serializable {
     
     public Droit(String description) {
         this.description = description;
+        this.postes = new HashSet<>();
     }
 
     public String getDescription() {
