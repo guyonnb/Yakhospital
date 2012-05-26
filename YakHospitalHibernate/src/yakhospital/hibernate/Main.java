@@ -21,22 +21,15 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         /*
-         * variable : 
-         *  date : date du jour de creation
-         *  date_de_fin : date de fin sejour par defaut (a changer)
-         *  Patient     -> OK
-         *  Poste       -> OK
-         *  Service     -> OK
-         *  Salle       -> OK
-         *  Titulaire   -> OK
-         *  TypeSoin    -> OK
-         *  Sejour      -> OK
-         * 
+         * variable : date = date du jour de creation date_de_fin : date de fin
+         * sejour par defaut (a changer)
          */
         Calendar date = Calendar.getInstance();
         Calendar date_fin = Calendar.getInstance();
         date_fin.set(2014, 12, 16);
-
+        /*
+         * creation : Patient -> OK Poste -> OK Service -> OK Salle -> OK
+         */
         Patient p1 = new Patient("Dupont", "Jean", "1234567889123");
         Patient p2 = new Patient("Kant", "Emmanuel", "1530675544655");
         Patient p3 = new Patient("Fourier", "Charles", "1410145546564");
@@ -73,25 +66,34 @@ public class Main {
         Salle s7 = new Salle(10, "salleOrthopedie", Orthopedie);
         Salle s8 = new Salle(5, "salleAR", ar);
         /*
-         * association soin <-> service
+         * association service <-> salle
          */
-         Pediatrie 
-         Psychiatrie 
-         Neurologie 
-         cpre
-         Cancerologie 
-         Cardiologie 
-         Orthopedie 
-         ar 
+        Pediatrie.ajouterSalle(s1);
+        Neurologie.ajouterSalle(s2);
+        Psychiatrie.ajouterSalle(s3);
+        cpre.ajouterSalle(s4);
+        Cancerologie.ajouterSalle(s5);
+        Cardiologie.ajouterSalle(s6);
+        Orthopedie.ajouterSalle(s7);
+        ar.ajouterSalle(s8);
 
         /*
+         * creation : Titulaire typeSoin Sejour
          */
-
         Titulaire t1 = new Titulaire("Joel", "Yven", "123");
         Titulaire t2 = new Titulaire("Hisaishi", "Joe", "456");
         Titulaire t3 = new Titulaire("Amadeus", "Mozart", "891");
         Titulaire t4 = new Titulaire("ludovicVan", "Beethoven", "333");
-
+        Titulaire t5 = new Titulaire("ray", "charles", "666");
+        Titulaire t6 = new Titulaire("Bartolomeo", "Cristofori", "951");
+        /*
+         * assocition titulaire <-> poste
+         */
+        t1.setPoste(posteMed);
+        
+        /*
+         * creation : de type de soim; sejour ;
+         */
         TypeSoin ts1 = new TypeSoin("Coloscopie");
         TypeSoin ts2 = new TypeSoin("intensifs");
         TypeSoin ts3 = new TypeSoin("Consultation");
@@ -106,22 +108,31 @@ public class Main {
         Sejour sejour7 = new Sejour("myofasciite", date, p1);
         Sejour sejour8 = new Sejour("leucodystrophie", date, p1);
 
-        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t1));
-        sejour1.ajouterSoin(new Soin(date, "comment", ts2, t2));
-        sejour2.ajouterSoin(new Soin(date, "comment", ts3, t3));
-        sejour2.ajouterSoin(new Soin(date, "comment", ts4, t4));
+        /*
+         * association sejour <-> soin
+         */
+        sejour1.ajouterSoin(new Soin(date, "comment", ts1, t1, sejour1));
+        sejour5.ajouterSoin(new Soin(date, "comment", ts2, t2, sejour5));
+        sejour2.ajouterSoin(new Soin(date, "comment", ts3, t3, sejour2));
+        sejour7.ajouterSoin(new Soin(date, "comment", ts4, t4, sejour7));
 
+        /*
+         * association patient <-> sejour
+         */
         p1.ajouterSejour(sejour1);
-        p2.ajouterSejour(sejour1);
-        p3.ajouterSejour(sejour1);
-        p4.ajouterSejour(sejour1);
-        p5.ajouterSejour(sejour1);
-        p6.ajouterSejour(sejour2);
-        p7.ajouterSejour(sejour2);
-        p8.ajouterSejour(sejour2);
-        p9.ajouterSejour(sejour2);
+        p2.ajouterSejour(sejour2);
+        p3.ajouterSejour(sejour3);
+        p4.ajouterSejour(sejour4);
+        p5.ajouterSejour(sejour5);
+        p6.ajouterSejour(sejour6);
+        p7.ajouterSejour(sejour7);
+        p8.ajouterSejour(sejour8);
+        p9.ajouterSejour(sejour1);
         p10.ajouterSejour(sejour2);
 
+        /*
+         * creation de la liste de patient puis ajout patient dans liste
+         */
         List<Patient> myList = new ArrayList<>();
         myList.add(p1);
         myList.add(p2);
@@ -137,6 +148,9 @@ public class Main {
         Session session = HibUtil.getSessionFactory().getCurrentSession();
         org.hibernate.Transaction t = session.beginTransaction();
 
+        /*
+         * sauvegarde le patient et tous ses attributs
+         */
         for (Patient p : myList) {
             session.save(p);
         }
