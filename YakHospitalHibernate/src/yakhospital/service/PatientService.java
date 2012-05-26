@@ -5,6 +5,7 @@
 package yakhospital.service;
 
 import java.util.Calendar;
+import java.util.List;
 import yakhospital.hibernate.Patient;
 import yakhospital.hibernate.Sejour;
 import yakhospital.hibernate.Soin;
@@ -19,7 +20,7 @@ public class PatientService {
     private PatientService() {
     }
 
-    static Integer creerPatient(String nomPatient, String PrenomPatient,
+    public static Integer creerPatient(String nomPatient, String PrenomPatient,
             String nss, Integer numRue, String rue, String cp, String ville,
             String sexe, Calendar naissance, String tel, String telUrgence,
             String note) {
@@ -29,7 +30,7 @@ public class PatientService {
         return PatientDAOImpl.getInstance().save(patient);
     }
 
-    static Boolean modifierPatient(Patient patient, String nomPatient,
+    public static Boolean modifierPatient(Patient patient, String nomPatient,
             String PrenomPatient, String nss, Integer numRue, String rue,
             String cp, String ville, String sexe, Calendar naissance,
             String tel, String telUrgence, String note) {
@@ -49,7 +50,7 @@ public class PatientService {
         return PatientDAOImpl.getInstance().update(patient);
     }
 
-    static Boolean modifierPatient(Integer idPatient, String nomPatient,
+    public static Boolean modifierPatient(Integer idPatient, String nomPatient,
             String PrenomPatient, String nss, Integer numRue, String rue,
             String cp, String ville, String sexe, Calendar naissance,
             String tel, String telUrgence, String note) {
@@ -71,23 +72,23 @@ public class PatientService {
         return PatientDAOImpl.getInstance().update(patient);
     }
 
-    static Boolean supprimerPatient(Integer idPatient) {
+    public static Boolean supprimerPatient(Integer idPatient) {
         return PatientDAOImpl.getInstance().delete(idPatient);
     }
 
-    static Boolean supprimerPatient(Patient patient) {
+    public static Boolean supprimerPatient(Patient patient) {
         return PatientDAOImpl.getInstance().delete(patient.getId_patient());
     }
 
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
-    static void ajouterSejour(Patient patient, Sejour sejour) {
+    public static void ajouterSejour(Patient patient, Sejour sejour) {
         sejour.setPatient(patient);
         patient.ajouterSejour(sejour);
         PatientDAOImpl.getInstance().update(patient);
     }
 
     //Quand on ajoute un sejour, on ajoute forcement un soin avec
-    static void ajouterSejour(Integer idPatient, Sejour sejour) {
+    public static void ajouterSejour(Integer idPatient, Sejour sejour) {
         Patient patient = PatientDAOImpl.getInstance().get(idPatient);
         sejour.setPatient(patient);
         patient.ajouterSejour(sejour);
@@ -95,27 +96,42 @@ public class PatientService {
     }
 
     // On ajoute toujours le soin au sejour en cours
-    static void ajouterSoin(Patient patient, Soin soin) {
+    public static void ajouterSoin(Patient patient, Soin soin) {
         Sejour sejour = PatientDAOImpl.getInstance()
                 .getSejourEnCours(patient.getId_patient());
         SejourService.ajouterSoin(sejour, soin);
     }
 
     // On ajoute toujours le soin au sejour en cours
-    static void ajouterSoin(Integer idPatient, Soin soin) {
+    public static void ajouterSoin(Integer idPatient, Soin soin) {
         Sejour sejour = PatientDAOImpl.getInstance().getSejourEnCours(idPatient);
         SejourService.ajouterSoin(sejour, soin);
     }
     
-    static void cloturerSejourEnCours (Patient patient)
+    public static void cloturerSejourEnCours (Patient patient)
     {
         PatientDAOImpl.getInstance().getSejourEnCours(patient.getId_patient())
                 .setStatus(false);
     }
     
-    static void cloturerSejourEnCours (Integer idPatient)
+    public static void cloturerSejourEnCours (Integer idPatient)
     {
         PatientDAOImpl.getInstance().getSejourEnCours(idPatient)
                 .setStatus(false);
+    }
+    
+    public static List<Patient> getPatientByNom(String nom)
+    {
+        return PatientDAOImpl.getInstance().getByNom(nom);
+    }
+    
+    public static List<Patient> getPatientByNomPrenom(String nom, String prenom)
+    {
+        return PatientDAOImpl.getInstance().getByNomPrenom(nom, prenom);
+    }
+    
+    public static Patient getPatientByNss(String nss)
+    {
+        return PatientDAOImpl.getInstance().getByNss(nss);
     }
 }

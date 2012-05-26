@@ -14,36 +14,36 @@ import yakhospital.hibernate.dao.impl.PosteDAOImpl;
  */
 public class PosteService {
     
-    public Integer creerPoste(String nomPoste)
+    public static Integer creerPoste(String nomPoste)
     {
         Poste p = new Poste(nomPoste);
         return PosteDAOImpl.getInstance().save(p);
     }
     
-    public Boolean modifierPoste (Poste poste, String nomPoste)
+    public static Boolean modifierPoste (Poste poste, String nomPoste)
     {
         poste.setNom_poste(nomPoste);
         return PosteDAOImpl.getInstance().update(poste);
     }
     
-    public Boolean modifierPoste (Integer idPoste, String nomPoste)
+    public static Boolean modifierPoste (Integer idPoste, String nomPoste)
     {
         Poste p = PosteDAOImpl.getInstance().get(idPoste);
         p.setNom_poste(nomPoste);
         return PosteDAOImpl.getInstance().update(p);
     }
     
-    public Boolean supprimerPoste(Integer idPoste) 
+    public static Boolean supprimerPoste(Integer idPoste) 
     {
         return PosteDAOImpl.getInstance().delete(idPoste);
     }
     
-    public Boolean supprimerPoste(Poste poste) 
+    public static Boolean supprimerPoste(Poste poste) 
     {
         return PosteDAOImpl.getInstance().delete(poste.getId_poste());
     }
     
-    public List<Poste> getAllPostes()
+    public static List<Poste> getAllPostes()
     {
         return PosteDAOImpl.getInstance().list();
     }

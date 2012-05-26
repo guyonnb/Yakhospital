@@ -6,8 +6,6 @@ package yakhospital.hibernate;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Locale;
-import java.util.TimeZone;
 import javax.persistence.*;
 
 /**

@@ -15,6 +15,9 @@ import yakhospital.hibernate.Sejour;
 public interface PatientDAO {
     public List<Patient> list();
     public Patient get(Integer id);
+    public List<Patient> getByNom(String nom);
+    public List<Patient> getByNomPrenom(String nom, String prenom);
+    public Patient getByNss(String nss);
     public Integer save(Patient patient);
     public Boolean update(Patient patient);
     public Boolean delete(Integer id);

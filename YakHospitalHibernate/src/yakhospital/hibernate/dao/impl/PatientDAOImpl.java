@@ -133,4 +133,47 @@ public class PatientDAOImpl implements PatientDAO {
         t.commit();
         return sejour;
     }
+
+    @Override
+    public List<Patient> getByNom(String nom) {
+        Session sess = HibUtil.getSessionFactory()
+                .getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Patient.class);
+        // On restreint ce critere suivant la valeur du nom
+        crit.add(Restrictions.eq("nom_patient", nom));
+        // On veut récuperer une liste de titulaires ayant ce nom
+        List<Patient> patients = crit.list();
+        t.commit();
+        return patients;
+    }
+
+    @Override
+    public List<Patient> getByNomPrenom(String nom, String prenom) {
+        Session sess = HibUtil.getSessionFactory()
+                .getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Patient.class);
+        // On restreint ce critere suivant la valeur du nom
+        crit.add(Restrictions.eq("nom_patient", nom));
+        crit.add(Restrictions.eq("prenom_patient", prenom));
+        // On veut récuperer une liste de titulaires ayant ce nom
+        List<Patient> patients = crit.list();
+        t.commit();
+        return patients;
+    }
+
+    @Override
+    public Patient getByNss(String nss) {
+        Session sess = HibUtil.getSessionFactory()
+                .getCurrentSession();
+        Transaction t = sess.beginTransaction();
+        Criteria crit = sess.createCriteria(Patient.class);
+        // On restreint ce critere suivant la valeur du nom
+        crit.add(Restrictions.eq("nss", nss));
+        // On veut récuperer une liste de titulaires ayant ce nom
+        Patient patient = (Patient) crit.uniqueResult();
+        t.commit();
+        return patient;
+    }
 }

@@ -19,39 +19,39 @@ public class TypeSoinService {
     }
     
     // Crée un nouveau type de soin
-    static Integer creerTypeSoin(String nomSoin)
+    public static Integer creerTypeSoin(String nomSoin)
     {
            TypeSoin soin = new TypeSoin(nomSoin);
         return TypeSoinDAOImpl.getInstance().save(soin);
     }
     
     // Modifie le nom d'un type de soin
-    static Boolean modifierTypeSoin (TypeSoin typeSoin, String nomSoin)
+    public static Boolean modifierTypeSoin (TypeSoin typeSoin, String nomSoin)
     {
         typeSoin.setNom_soin(nomSoin);
         return TypeSoinDAOImpl.getInstance().update(typeSoin);
     }
     
     // Supprime un type de soin
-    static Boolean supprimerTypeSoin (TypeSoin typeSoin)
+    public static Boolean supprimerTypeSoin (TypeSoin typeSoin)
     {
         return TypeSoinDAOImpl.getInstance().delete(typeSoin.getId_type_soin());
     }
     
     // Renvoie une liste de otous les soins
-    static List<TypeSoin> getAllTypeSoin()
+    public static List<TypeSoin> getAllTypeSoin()
     {
         return TypeSoinDAOImpl.getInstance().list();
     }
     
     // Renvoie un type de soin suivant son id
-    static TypeSoin getTypeSoin(Integer idSoin)
+    public static TypeSoin getTypeSoin(Integer idSoin)
     {
         return TypeSoinDAOImpl.getInstance().get(idSoin);
     }
     
     // Renvoie un type de soin suivant son nom
-    static TypeSoin getTypeSoin(String nomSoin)
+    public static TypeSoin getTypeSoin(String nomSoin)
     {
         return TypeSoinDAOImpl.getInstance().get(nomSoin);
     }
