@@ -25,10 +25,13 @@ public class Salle implements Serializable {
     public Salle() {
     }
 
-    public Salle(Integer nb_lits) {
+    public Salle(Integer nb_lits, String nom_salle, Service service) {
         this.nb_lits = nb_lits;
+        this.nom_salle = nom_salle;
+        this.service = service;
     }
 
+  
     public String getNom_salle() {
         return nom_salle;
     }
