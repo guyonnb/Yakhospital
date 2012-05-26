@@ -92,4 +92,7 @@ public class Service implements Serializable {
     {
         this.salles.add(salle);
     }
+    public void ajouterServiceComp (Service service) {
+        this.servicesComp.add(this);
+    }
 }

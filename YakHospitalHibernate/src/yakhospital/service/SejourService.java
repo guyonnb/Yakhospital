@@ -41,9 +41,8 @@ public class SejourService {
     }
 
     public static Boolean ajouterSoin(Sejour sejour, Soin soin) {
-        Set<Soin> soins = sejour.getSoins();
-        soins.add(soin);
-        sejour.setSoins(soins);
+        soin.setSejour(sejour);
+        sejour.ajouterSoin(soin);
         return SejourDAOImpl.getInstance().update(sejour);
     }
     
