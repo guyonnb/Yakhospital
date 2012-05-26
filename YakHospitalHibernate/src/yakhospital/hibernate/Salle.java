@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -29,6 +30,7 @@ public class Salle implements Serializable {
         this.nb_lits = nb_lits;
         this.nom_salle = nom_salle;
         this.service = service;
+        this.soins = new HashSet<>();
     }
 
   
@@ -77,5 +79,10 @@ public class Salle implements Serializable {
 
     public void setSoins(Set<Soin> lst_soins) {
         this.soins = lst_soins;
+    }
+    
+    public void ajouterSoin (Soin soin)
+    {
+        this.soins.add(soin);
     }
 }

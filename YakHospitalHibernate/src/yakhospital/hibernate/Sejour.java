@@ -6,6 +6,7 @@ package yakhospital.hibernate;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -33,6 +34,7 @@ public class Sejour implements Serializable {
         this.date_debut = date_debut;
         this.patient = patient;
         this.status = true;
+        this.soins = new HashSet<>();
     }
 
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)

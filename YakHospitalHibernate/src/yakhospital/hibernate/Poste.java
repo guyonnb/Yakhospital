@@ -5,6 +5,7 @@
 package yakhospital.hibernate;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
@@ -26,6 +27,8 @@ public class Poste implements Serializable {
 
     public Poste(String nom_poste) {
         this.nom_poste = nom_poste;
+        this.titulaires = new HashSet<>();
+        this.droits = new HashSet<>();
     }
 
     @Id
@@ -68,5 +71,10 @@ public class Poste implements Serializable {
 
     public void setDroits(Set<Droit> droits) {
         this.droits = droits;
+    }
+    
+    public void ajouterTitulaire(Titulaire titulaire)
+    {
+        this.titulaires.add(titulaire);
     }
 }
