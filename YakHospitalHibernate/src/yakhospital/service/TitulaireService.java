@@ -22,14 +22,14 @@ public class TitulaireService {
     } 
     
     // Crée un titulaire
-    static Integer creerTitulaire(String nom, String prenom, String numPro)
+    public static Integer creerTitulaire(String nom, String prenom, String numPro)
     {
         Titulaire titulaire = new Titulaire(nom, prenom, numPro);
         return TitulaireDAOImpl.getInstance().save(titulaire);
     }
     
     // Modifie les nom, prenom, num pro du titulaire
-    static Boolean modifierTitulaire (Titulaire titulaire, String nom, String prenom, String numPro)
+    public static Boolean modifierTitulaire (Titulaire titulaire, String nom, String prenom, String numPro)
     {
         titulaire.setNom_titulaire(nom);
         titulaire.setPrenom_titulaire(prenom);
@@ -38,14 +38,14 @@ public class TitulaireService {
     }
     
     // Modifie le mot de passe du titulaire
-    static Boolean modifierMdpTitulaire (Titulaire titulaire, String mdp)
+    public static Boolean modifierMdpTitulaire (Titulaire titulaire, String mdp)
     {
         titulaire.setMdp(mdp);
         return TitulaireDAOImpl.getInstance().update(titulaire);
     }
     
     // Assigne un poste au titulaire
-    static Boolean modifierPosteTitulaire (Titulaire titulaire, Poste poste)
+    public static Boolean modifierPosteTitulaire (Titulaire titulaire, Poste poste)
     {
         if (titulaire.getPoste() != poste)
         {
@@ -58,7 +58,7 @@ public class TitulaireService {
     }
     
     // Assigne un service au titulaire
-    static Boolean modifierServiceTitulaire (Titulaire titulaire, Service service)
+    public static Boolean modifierServiceTitulaire (Titulaire titulaire, Service service)
     {
         if (titulaire.getService() != service)
         {
@@ -71,7 +71,7 @@ public class TitulaireService {
     }
     
     // Ajoute un soin pour un titulaire
-    static Boolean ajouterSoinTitulaire (Titulaire titulaire, Soin soin)
+    public static Boolean ajouterSoinTitulaire (Titulaire titulaire, Soin soin)
     {
         soin.setTitulaire(titulaire);
         titulaire.addSoin(soin);
@@ -79,7 +79,7 @@ public class TitulaireService {
     }
     
     // Supprime un soin de la liste des soins du titulaire
-    static Boolean supprimerSoinTitulaire (Titulaire titulaire, Soin soin)
+    public static Boolean supprimerSoinTitulaire (Titulaire titulaire, Soin soin)
     {
         soin.setTitulaire(null);
         titulaire.getSoins().remove(soin);
@@ -87,39 +87,39 @@ public class TitulaireService {
     }
     
     // Supprime un titulaire
-    static Boolean supprimerTitulaire (Titulaire titulaire)
+    public static Boolean supprimerTitulaire (Titulaire titulaire)
     {
         return TitulaireDAOImpl.getInstance().delete(titulaire.getId_titulaire());
     }
     
     // Renvoie une liste de tous les titulaires
-    static List<Titulaire> getAllTitulaire()
+    public static List<Titulaire> getAllTitulaires()
     {
         return TitulaireDAOImpl.getInstance().list();
     }
     
     // Renvoie un titulaire suivant son id
-    static Titulaire getTitulaire(Integer idTitulaire)
+    public static Titulaire getTitulaireById(Integer idTitulaire)
     {
         return TitulaireDAOImpl.getInstance().get(idTitulaire);
     }
     
     // Renvoie un titulaire suivant son num pro
-    static Titulaire getTitulaire(String numPro)
+    public static Titulaire getTitulaireByNumPro(String numPro)
     {
-        return TitulaireDAOImpl.getInstance().getTitulaire(numPro);
+        return TitulaireDAOImpl.getInstance().getByNumPro(numPro);
     }
     
     // Renvoie une liste de titulaires suivant le nom
-    static List<Titulaire> getTit(String nom)
+    public static List<Titulaire> getTitulaireByNom(String nom)
     {
-        return TitulaireDAOImpl.getInstance().get(nom);
+        return TitulaireDAOImpl.getInstance().getByNom(nom);
     }
     
     // Renvoie un titulaire suivant ses nom et prénom
-    static Titulaire getTitulaire(String nom, String prenom)
+    public static List<Titulaire> getTitulaireByNomPrenom(String nom, String prenom)
     {
-        return TitulaireDAOImpl.getInstance().get(nom, prenom);
+        return TitulaireDAOImpl.getInstance().getByNomPrenom(nom, prenom);
     }
     
 }

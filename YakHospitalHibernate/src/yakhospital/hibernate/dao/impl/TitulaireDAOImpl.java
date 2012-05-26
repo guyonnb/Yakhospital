@@ -52,7 +52,7 @@ public class TitulaireDAOImpl implements TitulaireDAO{
     * Recupere un titulaire selon son num pro
     */
     @Override
-    public Titulaire getTitulaire(String numPro)
+    public Titulaire getByNumPro(String numPro)
     {
         Session sess = HibUtil.getSessionFactory().
         getCurrentSession();
@@ -70,7 +70,7 @@ public class TitulaireDAOImpl implements TitulaireDAO{
     * Recupere une liste de titulaires suivant un nom
     */
     @Override
-    public List<Titulaire> get(String nom)
+    public List<Titulaire> getByNom(String nom)
     {
         Session sess = HibUtil.getSessionFactory().
         getCurrentSession();
@@ -88,19 +88,19 @@ public class TitulaireDAOImpl implements TitulaireDAO{
     * Recupere un titulaire selon ses nom et prenom
     */
     @Override
-    public Titulaire get(String nom, String prenom)
+    public List<Titulaire> getByNomPrenom(String nom, String prenom)
     {
-        Session sess = HibUtil.getSessionFactory().
-        getCurrentSession();
+        Session sess = HibUtil.getSessionFactory()
+                .getCurrentSession();
         Transaction t = sess.beginTransaction();
         Criteria crit = sess.createCriteria(Titulaire.class);
         // On restreint ce critere suivant le nom ET le prenom
         crit.add(Restrictions.eq("nom_titulaire", nom));
         crit.add(Restrictions.eq("prenom_titulaire", prenom));
         // On ne veut et doit recuperer qu’un element
-        Titulaire titulaire = (Titulaire) crit.uniqueResult();
+        List<Titulaire> titulaires = crit.list();
         t.commit();
-        return titulaire;
+        return titulaires;
     }
     
     

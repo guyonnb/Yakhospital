@@ -17,13 +17,13 @@ public class SoinService {
     private SoinService() {
     }
 
-    static Integer creerSoin(Calendar dateDebutSoin, String commentaire,
+    public static Integer creerSoin(Calendar dateDebutSoin, String commentaire,
                             Sejour s, TypeSoin typeSoin, Titulaire titulaire) {
-        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire);
+        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire, s);
         
         return SoinDAOImpl.getInstance().save(soin);
     }
-    static Boolean modifierSoin (Soin soin, Calendar dateDebutSoin,
+    public static Boolean modifierSoin (Soin soin, Calendar dateDebutSoin,
                                  Calendar dateFinSoin,  String commentaire,
                                  Sejour s, TypeSoin typeSoin, Titulaire titulaire,
                                  Salle salle) {
@@ -37,7 +37,7 @@ public class SoinService {
         
         return SoinDAOImpl.getInstance().update(soin);
     }
-    static Boolean modifierSoin (Integer id_soin, Calendar dateDebutSoin,
+    public static Boolean modifierSoin (Integer id_soin, Calendar dateDebutSoin,
                                  Calendar dateFinSoin,  String commentaire,
                                  Sejour s, TypeSoin typeSoin, Titulaire titulaire,
                                  Salle salle) {

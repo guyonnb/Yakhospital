@@ -4,14 +4,14 @@
  */
 package yakhospital.service;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Set;
 import yakhospital.hibernate.Patient;
 import yakhospital.hibernate.Sejour;
 import yakhospital.hibernate.Soin;
-import yakhospital.hibernate.dao.impl.*;
+import yakhospital.hibernate.dao.impl.PatientDAOImpl;
+import yakhospital.hibernate.dao.impl.SejourDAOImpl;
+import yakhospital.hibernate.dao.impl.SoinDAOImpl;
 
 /**
  *
