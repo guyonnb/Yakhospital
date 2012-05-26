@@ -4,7 +4,9 @@
  */
 package yakhospital.service;
 
+import yakhospital.hibernate.Salle;
 import yakhospital.hibernate.Service;
+import yakhospital.hibernate.Titulaire;
 import yakhospital.hibernate.dao.impl.ServiceDAOImpl;
 
 
@@ -34,5 +36,19 @@ public class ServiceService {
     }
     public static Boolean supprimerService (Integer id_service) {
         return ServiceDAOImpl.getInstance().delete(id_service);
+    }
+    public static Boolean ajouterTitulaire (Titulaire titulaire, Service service) {
+        titulaire.setService(service);
+        service.ajouterTitulaire(titulaire);
+        return ServiceDAOImpl.getInstance().update(service);
+    }
+    public static Boolean ajouterSalle (Salle salle, Service service) {
+       salle.setService(service);
+       service.ajouterSalle(salle);
+       return ServiceDAOImpl.getInstance().update(service);
+    }
+    public static Boolean ajouterServiceComp (Service serviceComp, Service service) {
+        service.ajouterServiceComp(serviceComp);
+        return ServiceDAOImpl.getInstance().update(service);
     }
 }
