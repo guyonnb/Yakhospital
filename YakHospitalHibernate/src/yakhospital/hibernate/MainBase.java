@@ -48,18 +48,18 @@ public class MainBase {
         Poste posteSecret = new Poste("Secretaire");
         Poste posteInterne = new Poste("Interne");
 
-        Service Pediatrie = new Service("Pediatrie");
-        Service Psychiatrie = new Service("Psychiatrie");
-        Service Neurologie = new Service("Neurologie");
+        Service pediatrie = new Service("Pediatrie");
+        Service psychiatrie = new Service("Psychiatrie");
+        Service neurologie = new Service("Neurologie");
         Service cpre = new Service("cpre"); //Chirurgie plastique, reconstructrice et esthétique
         Service Cancerologie = new Service("Cancerologie");
         Service Cardiologie = new Service("Cardiologie");
         Service Orthopedie = new Service("Orthopedie");
         Service ar = new Service("ar");//Anesthésie et réanimation = lits de réveil
 
-        Lit s1 = new Lit(15, "litPédiatrie", Pediatrie);
-        Lit s2 = new Lit(2, "litNeurologie", Neurologie);
-        Lit s3 = new Lit(8, "litPsychiatrie", Psychiatrie);
+        Lit s1 = new Lit(15, "litPédiatrie", pediatrie);
+        Lit s2 = new Lit(2, "litNeurologie", neurologie);
+        Lit s3 = new Lit(8, "litPsychiatrie", psychiatrie);
         Lit s4 = new Lit(4, "litCPRE", cpre);
         Lit s5 = new Lit(3, "litCancerologie", Cancerologie);
         Lit s6 = new Lit(5, "litCardiologie", Cardiologie);
@@ -68,9 +68,9 @@ public class MainBase {
         /*
          * association service <-> lit
          */
-        Pediatrie.ajouterLit(s1);
-        Neurologie.ajouterLit(s2);
-        Psychiatrie.ajouterLit(s3);
+        pediatrie.ajouterLit(s1);
+        neurologie.ajouterLit(s2);
+        psychiatrie.ajouterLit(s3);
         cpre.ajouterLit(s4);
         Cancerologie.ajouterLit(s5);
         Cardiologie.ajouterLit(s6);
@@ -86,6 +86,7 @@ public class MainBase {
         Titulaire t4 = new Titulaire("ludovicVan", "Beethoven", "333");
         Titulaire t5 = new Titulaire("ray", "charles", "666");
         Titulaire t6 = new Titulaire("Bartolomeo", "Cristofori", "951");
+
         /*
          * assocition titulaire <-> poste
          */
@@ -95,7 +96,7 @@ public class MainBase {
         t4.setPoste(posteAidSoi);
         t5.setPoste(posteSecret);
         t6.setPoste(posteInterne);
-        
+
         /*
          * creation : de type de soin; 
          */
@@ -143,6 +144,6 @@ public class MainBase {
         for (Patient p : myList) {
             session.save(p);
         }
-        t.commit();
+        //t.commit();
     }
 }
