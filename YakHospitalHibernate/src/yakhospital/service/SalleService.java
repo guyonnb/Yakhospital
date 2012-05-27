@@ -4,8 +4,10 @@
  */
 package yakhospital.service;
 
-import java.util.List;
-import java.util.Set;
+import java.security.Timestamp;
+import java.sql.Time;
+import java.util.*;
+import javax.persistence.Cache;
 import yakhospital.hibernate.Salle;
 import yakhospital.hibernate.Service;
 import yakhospital.hibernate.Soin;
@@ -74,4 +76,9 @@ public class SalleService {
         salle.ajouterSoin(soin);
         return SalleDAOImpl.getInstance().update(salle);
     }
+    
+
+    
+    
+    
 }
