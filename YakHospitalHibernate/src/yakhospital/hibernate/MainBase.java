@@ -168,6 +168,6 @@ public class MainBase {
         for (Patient p : myList) {
             session.save(p);
         }
-        t.commit();
+        //t.commit();
     }
 }
