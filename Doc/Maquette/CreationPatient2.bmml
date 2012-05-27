@@ -119,10 +119,10 @@
         <text>Placer%20le%20patient</text>
       </controlProperties>
     </control>
-    <control controlID="63" controlTypeID="com.balsamiq.mockups::DataGrid" x="572" y="131" w="417" h="259" measuredW="302" measuredH="88" zOrder="23" locked="false" isInGroup="-1">
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::DataGrid" x="572" y="131" w="417" h="259" measuredW="358" measuredH="88" zOrder="23" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>1</selectedIndex>
-        <text>Service%2C%20Salle%2C%20Date%2C%20Dur%E9e%20dispo%0APediatrie%2C%20P09%2C%2027/05/2012%2C%203h%0AP%E9diatrie%2C%20S1%2C%2028/05/2012%2C%201h30</text>
+        <text>Service%2C%20Salle%2C%20Date%2C%20Heure%2C%20Dur%E9e%20dispo%0APediatrie%2C%20P09%2C%2027/05/2012%2C%2015h%2C%203h%0AP%E9diatrie%2C%20S1%2C%2028/05/2012%2C%2012h%2C%201h30</text>
       </controlProperties>
     </control>
     <control controlID="64" controlTypeID="com.balsamiq.mockups::Arrow" x="693" y="109" w="338" h="10" measuredW="150" measuredH="100" zOrder="25" locked="false" isInGroup="-1"/>
