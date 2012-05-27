@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.hibernate.Session;
-import yakhospital.hibernate.dao.TypeSoinDAO;
-import yakhospital.hibernate.dao.impl.TypeSoinDAOImpl;
+
 
 /**
  *
@@ -30,7 +29,7 @@ public class MainBase {
         Calendar date_fin = Calendar.getInstance();
         date_fin.set(2014, 12, 16);
         /*
-         * creation : Patient -> OK Poste -> OK Service -> OK Salle -> OK
+         * creation : Patient, Poste, Service, Salle
          */
         Patient p1 = new Patient("Dupont", "Jean", "1234567889123");
         Patient p2 = new Patient("Kant", "Emmanuel", "1530675544655");
@@ -50,33 +49,34 @@ public class MainBase {
         Poste posteSecret = new Poste("Secretaire");
         Poste posteInterne = new Poste("Interne");
 
-        Service Pediatrie = new Service("Pediatrie");
-        Service Psychiatrie = new Service("Psychiatrie");
-        Service Neurologie = new Service("Neurologie");
+        Service pediatrie = new Service("Pediatrie");
+        Service psychiatrie = new Service("Psychiatrie");
+        Service neurologie = new Service("Neurologie");
         Service cpre = new Service("cpre"); //Chirurgie plastique, reconstructrice et esthétique
-        Service Cancerologie = new Service("Cancerologie");
-        Service Cardiologie = new Service("Cardiologie");
-        Service Orthopedie = new Service("Orthopedie");
+        Service cancerologie = new Service("Cancerologie");
+        Service cardiologie = new Service("Cardiologie");
+        Service orthopedie = new Service("Orthopedie");
         Service ar = new Service("ar");//Anesthésie et réanimation = salles de réveil
 
-        Salle s1 = new Salle(15, "sallePédiatrie", Pediatrie);
-        Salle s2 = new Salle(2, "salleNeurologie", Neurologie);
-        Salle s3 = new Salle(8, "sallePsychiatrie", Psychiatrie);
+        Salle s1 = new Salle(15, "sallePédiatrie", pediatrie);
+        Salle s2 = new Salle(2, "salleNeurologie", psychiatrie);
+        Salle s3 = new Salle(8, "sallePsychiatrie", neurologie);
         Salle s4 = new Salle(4, "salleCPRE", cpre);
-        Salle s5 = new Salle(3, "salleCancerologie", Cancerologie);
-        Salle s6 = new Salle(5, "salleCardiologie", Cardiologie);
-        Salle s7 = new Salle(10, "salleOrthopedie", Orthopedie);
+        Salle s5 = new Salle(3, "salleCancerologie", cancerologie);
+        Salle s6 = new Salle(5, "salleCardiologie", cardiologie);
+        Salle s7 = new Salle(10, "salleOrthopedie", orthopedie);
         Salle s8 = new Salle(5, "salleAR", ar);
+      
         /*
          * association service <-> salle
          */
-        Pediatrie.ajouterSalle(s1);
-        Neurologie.ajouterSalle(s2);
-        Psychiatrie.ajouterSalle(s3);
+        pediatrie.ajouterSalle(s1);
+        neurologie.ajouterSalle(s2);
+        psychiatrie.ajouterSalle(s3);
         cpre.ajouterSalle(s4);
-        Cancerologie.ajouterSalle(s5);
-        Cardiologie.ajouterSalle(s6);
-        Orthopedie.ajouterSalle(s7);
+        cancerologie.ajouterSalle(s5);
+        cardiologie.ajouterSalle(s6);
+        orthopedie.ajouterSalle(s7);
         ar.ajouterSalle(s8);
 
         /*
@@ -88,6 +88,7 @@ public class MainBase {
         Titulaire t4 = new Titulaire("ludovicVan", "Beethoven", "333");
         Titulaire t5 = new Titulaire("ray", "charles", "666");
         Titulaire t6 = new Titulaire("Bartolomeo", "Cristofori", "951");
+
         /*
          * assocition titulaire <-> poste
          */
@@ -97,7 +98,7 @@ public class MainBase {
         t4.setPoste(posteAidSoi);
         t5.setPoste(posteSecret);
         t6.setPoste(posteInterne);
-        
+
         /*
          * creation : de type de soim; sejour ;
          */
@@ -118,13 +119,12 @@ public class MainBase {
         /*
          * association sejour <-> soin
          */
-
         Soin soin1 = new Soin(date, "comment", ts1, t2, sejour1);
         soin1.setSalle(s8);
         Soin soin2 = new Soin(date, "comment", ts2, t2, sejour5);
         Soin soin3 = new Soin(date, "comment", ts3, t3, sejour2);
         Soin soin4 = new Soin(date, "comment", ts4, t4, sejour7);
-        
+
         sejour1.ajouterSoin(soin1);
         sejour5.ajouterSoin(soin2);
         sejour2.ajouterSoin(soin3);
