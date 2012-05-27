@@ -9,7 +9,6 @@ import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import yakhospital.hibernate.HibUtil;
 import yakhospital.hibernate.Patient;
-import yakhospital.hibernate.Sejour;
 import yakhospital.hibernate.dao.PatientDAO;
 
 /**
@@ -118,20 +117,6 @@ public class PatientDAOImpl implements PatientDAO {
         } catch (HibernateException e) {
             return false;
         }
-    }
-
-    @Override
-    //En cours
-    public Sejour getSejourEnCours(Integer idPatient) {
-        Session sess = HibUtil.getSessionFactory().
-                getCurrentSession();
-        Transaction t = sess.beginTransaction();
-        Criteria crit = sess.createCriteria(Sejour.class);
-        crit.add(Restrictions.like("status", true));
-        crit.createCriteria("patient").add(Restrictions.like("id", idPatient));
-        Sejour sejour = (Sejour) crit.uniqueResult();
-        t.commit();
-        return sejour;
     }
 
     @Override

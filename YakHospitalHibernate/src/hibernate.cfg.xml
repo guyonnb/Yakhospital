@@ -17,8 +17,7 @@
         <mapping class="yakhospital.hibernate.Droit" />
         <mapping class="yakhospital.hibernate.Patient" />
         <mapping class="yakhospital.hibernate.Poste" />
-        <mapping class="yakhospital.hibernate.Salle" />
-        <mapping class="yakhospital.hibernate.Sejour" />
+        <mapping class="yakhospital.hibernate.Lit" />
         <mapping class="yakhospital.hibernate.Service" />
         <mapping class="yakhospital.hibernate.Soin" />
         <mapping class="yakhospital.hibernate.Titulaire" />

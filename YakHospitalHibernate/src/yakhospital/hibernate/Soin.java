@@ -20,21 +20,21 @@ public class Soin implements Serializable {
     private Calendar date_debut_soin;
     private Calendar date_fin_soin;
     private String commentaire;
-    private Sejour sejour;
-    private Salle salle;
+    private Patient patient;
+    private Lit lit;
     private TypeSoin typeSoin;
     private Titulaire titulaire;
 
     public Soin() {
     }
 
-    public Soin(Calendar date_debut_soin, String commentaire, TypeSoin typeSoin, Titulaire titulaire, Sejour sejour) {
+    public Soin(Calendar date_debut_soin, Calendar date_fin_soin, String commentaire, TypeSoin typeSoin, Titulaire titulaire, Patient patient) {
         this.date_debut_soin = date_debut_soin;
         this.commentaire = commentaire;
         this.typeSoin = typeSoin;
         this.titulaire = titulaire;
-        this.date_fin_soin = Calendar.getInstance();
-        this.sejour = sejour;
+        this.date_fin_soin = date_fin_soin;
+        this.patient = patient;
     }
 
     public String getCommentaire() {
@@ -73,24 +73,24 @@ public class Soin implements Serializable {
         this.id_soin = id_soin;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Salle.class)
-    @JoinColumn(name = "id_salle")
-    public Salle getSalle() {
-        return salle;
+    @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Lit.class)
+    @JoinColumn(name = "id_lit")
+    public Lit getLit() {
+        return lit;
     }
 
-    public void setSalle(Salle salle) {
-        this.salle = salle;
+    public void setLit(Lit lit) {
+        this.lit = lit;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Sejour.class)
-    @JoinColumn(name = "id_sejour")
-    public Sejour getSejour() {
-        return sejour;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Patient.class)
+    @JoinColumn(name = "id_patient")
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setSejour(Sejour sejour) {
-        this.sejour = sejour;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = TypeSoin.class)

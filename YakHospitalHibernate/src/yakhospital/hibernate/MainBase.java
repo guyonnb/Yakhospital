@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.hibernate.Session;
-import yakhospital.hibernate.dao.TypeSoinDAO;
-import yakhospital.hibernate.dao.impl.TypeSoinDAOImpl;
 
 /**
  *
@@ -24,13 +22,13 @@ public class MainBase {
         // TODO code application logic here
         /*
          * variable : date = date du jour de creation date_de_fin : date de fin
-         * sejour par defaut (a changer)
          */
         Calendar date = Calendar.getInstance();
         Calendar date_fin = Calendar.getInstance();
-        date_fin.set(2014, 12, 16);
+        date_fin.set(2014, 12, 16, 0, 0, 0);
+        
         /*
-         * creation : Patient -> OK Poste -> OK Service -> OK Salle -> OK
+         * creation : Patient -> OK Poste -> OK Service -> OK Lit -> OK
          */
         Patient p1 = new Patient("Dupont", "Jean", "1234567889123");
         Patient p2 = new Patient("Kant", "Emmanuel", "1530675544655");
@@ -57,30 +55,30 @@ public class MainBase {
         Service Cancerologie = new Service("Cancerologie");
         Service Cardiologie = new Service("Cardiologie");
         Service Orthopedie = new Service("Orthopedie");
-        Service ar = new Service("ar");//Anesthésie et réanimation = salles de réveil
+        Service ar = new Service("ar");//Anesthésie et réanimation = lits de réveil
 
-        Salle s1 = new Salle(15, "sallePédiatrie", Pediatrie);
-        Salle s2 = new Salle(2, "salleNeurologie", Neurologie);
-        Salle s3 = new Salle(8, "sallePsychiatrie", Psychiatrie);
-        Salle s4 = new Salle(4, "salleCPRE", cpre);
-        Salle s5 = new Salle(3, "salleCancerologie", Cancerologie);
-        Salle s6 = new Salle(5, "salleCardiologie", Cardiologie);
-        Salle s7 = new Salle(10, "salleOrthopedie", Orthopedie);
-        Salle s8 = new Salle(5, "salleAR", ar);
+        Lit s1 = new Lit(15, "litPédiatrie", Pediatrie);
+        Lit s2 = new Lit(2, "litNeurologie", Neurologie);
+        Lit s3 = new Lit(8, "litPsychiatrie", Psychiatrie);
+        Lit s4 = new Lit(4, "litCPRE", cpre);
+        Lit s5 = new Lit(3, "litCancerologie", Cancerologie);
+        Lit s6 = new Lit(5, "litCardiologie", Cardiologie);
+        Lit s7 = new Lit(10, "litOrthopedie", Orthopedie);
+        Lit s8 = new Lit(5, "litAR", ar);
         /*
-         * association service <-> salle
+         * association service <-> lit
          */
-        Pediatrie.ajouterSalle(s1);
-        Neurologie.ajouterSalle(s2);
-        Psychiatrie.ajouterSalle(s3);
-        cpre.ajouterSalle(s4);
-        Cancerologie.ajouterSalle(s5);
-        Cardiologie.ajouterSalle(s6);
-        Orthopedie.ajouterSalle(s7);
-        ar.ajouterSalle(s8);
+        Pediatrie.ajouterLit(s1);
+        Neurologie.ajouterLit(s2);
+        Psychiatrie.ajouterLit(s3);
+        cpre.ajouterLit(s4);
+        Cancerologie.ajouterLit(s5);
+        Cardiologie.ajouterLit(s6);
+        Orthopedie.ajouterLit(s7);
+        ar.ajouterLit(s8);
 
         /*
-         * creation : Titulaire typeSoin Sejour
+         * creation : Titulaire typeSoin
          */
         Titulaire t1 = new Titulaire("Joel", "Yven", "123");
         Titulaire t2 = new Titulaire("Hisaishi", "Joe", "456");
@@ -99,50 +97,27 @@ public class MainBase {
         t6.setPoste(posteInterne);
         
         /*
-         * creation : de type de soim; sejour ;
+         * creation : de type de soin; 
          */
         TypeSoin ts1 = new TypeSoin("Coloscopie");
         TypeSoin ts2 = new TypeSoin("intensifs");
         TypeSoin ts3 = new TypeSoin("Consultation");
         TypeSoin ts4 = new TypeSoin("Puericulture");
 
-        Sejour sejour1 = new Sejour("ulcere", date, p1);
-        Sejour sejour2 = new Sejour("drepanocytose", date, p1);
-        Sejour sejour3 = new Sejour("supranucleaire", date, p1);
-        Sejour sejour4 = new Sejour("progéria", date, p1);
-        Sejour sejour5 = new Sejour("mucoviscidose", date, p1);
-        Sejour sejour6 = new Sejour("myopathie", date, p1);
-        Sejour sejour7 = new Sejour("myofasciite", date, p1);
-        Sejour sejour8 = new Sejour("leucodystrophie", date, p1);
-
         /*
-         * association sejour <-> soin
+         * association patient <-> soin
          */
 
-        Soin soin1 = new Soin(date, "comment", ts1, t2, sejour1);
-        soin1.setSalle(s8);
-        Soin soin2 = new Soin(date, "comment", ts2, t2, sejour5);
-        Soin soin3 = new Soin(date, "comment", ts3, t3, sejour2);
-        Soin soin4 = new Soin(date, "comment", ts4, t4, sejour7);
+        Soin soin1 = new Soin(date, date_fin, "comment", ts1, t2, p1);
+        soin1.setLit(s8);
+        Soin soin2 = new Soin(date, date_fin, "comment", ts2, t2, p5);
+        Soin soin3 = new Soin(date, date_fin, "comment", ts3, t3, p2);
+        Soin soin4 = new Soin(date, date_fin, "comment", ts4, t4, p7);
         
-        sejour1.ajouterSoin(soin1);
-        sejour5.ajouterSoin(soin2);
-        sejour2.ajouterSoin(soin3);
-        sejour7.ajouterSoin(soin4);
-
-        /*
-         * association patient <-> sejour
-         */
-        p1.ajouterSejour(sejour1);
-        p2.ajouterSejour(sejour2);
-        p3.ajouterSejour(sejour3);
-        p4.ajouterSejour(sejour4);
-        p5.ajouterSejour(sejour5);
-        p6.ajouterSejour(sejour6);
-        p7.ajouterSejour(sejour7);
-        p8.ajouterSejour(sejour8);
-        p9.ajouterSejour(sejour1);
-        p10.ajouterSejour(sejour2);
+        p1.ajouterSoin(soin1);
+        p5.ajouterSoin(soin2);
+        p2.ajouterSoin(soin3);
+        p7.ajouterSoin(soin4);
 
         /*
          * creation de la liste de patient puis ajout patient dans liste

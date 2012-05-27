@@ -15,49 +15,39 @@ import org.hibernate.annotations.Cascade;
  * @author djenou_m
  */
 @Entity
-public class Salle implements Serializable {
+public class Lit implements Serializable {
 
-    private Integer id_salle;
-    private Integer nb_lits;
-    private String nom_salle;
+    private Integer id_lit;
+    private String nom_lit;
     private Service service;
     private Set<Soin> soins;
 
-    public Salle() {
+    public Lit() {
     }
 
-    public Salle(Integer nb_lits, String nom_salle, Service service) {
-        this.nb_lits = nb_lits;
-        this.nom_salle = nom_salle;
+    public Lit(Integer nb_lits, String nom_lit, Service service) {
+        this.nom_lit = nom_lit;
         this.service = service;
         this.soins = new HashSet<>();
     }
 
   
-    public String getNom_salle() {
-        return nom_salle;
+    public String getNom_lit() {
+        return nom_lit;
     }
 
-    public void setNom_salle(String nom_salle) {
-        this.nom_salle = nom_salle;
+    public void setNom_lit(String nom_lit) {
+        this.nom_lit = nom_lit;
     }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId_salle() {
-        return id_salle;
+    public Integer getId_lit() {
+        return id_lit;
     }
 
-    public void setId_salle(Integer id_salle) {
-        this.id_salle = id_salle;
-    }
-
-    public Integer getNb_lits() {
-        return nb_lits;
-    }
-
-    public void setNb_lits(Integer nb_lits) {
-        this.nb_lits = nb_lits;
+    public void setId_lit(Integer id_lit) {
+        this.id_lit = id_lit;
     }
 
     @ManyToOne(cascade = {CascadeType.ALL}, targetEntity = Service.class)
@@ -70,9 +60,9 @@ public class Salle implements Serializable {
         this.service = service;
     }
 
-    @OneToMany(mappedBy = "salle")
+    @OneToMany(mappedBy = "lit")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-//    @JoinColumn(name = "id_salle")
+//    @JoinColumn(name = "id_lit")
     public Set<Soin> getSoins() {
         return soins;
     }

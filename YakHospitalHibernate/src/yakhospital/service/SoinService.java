@@ -17,21 +17,21 @@ public class SoinService {
     private SoinService() {
     }
 
-    public static Integer creerSoin(Calendar dateDebutSoin, String commentaire,
-                            Sejour s, TypeSoin typeSoin, Titulaire titulaire) {
-        Soin soin = new Soin(dateDebutSoin, commentaire, typeSoin, titulaire, s);
+    public static Integer creerSoin(Calendar dateDebutSoin, Calendar dateFinSoin, String commentaire,
+                            Patient patient, TypeSoin typeSoin, Titulaire titulaire) {
+        Soin soin = new Soin(dateDebutSoin, dateFinSoin, commentaire, typeSoin, titulaire, patient);
         
         return SoinDAOImpl.getInstance().save(soin);
     }
     public static Boolean modifierSoin (Soin soin, Calendar dateDebutSoin,
                                  Calendar dateFinSoin,  String commentaire,
-                                 Sejour s, TypeSoin typeSoin, Titulaire titulaire,
-                                 Salle salle) {
+                                 Patient patient, TypeSoin typeSoin, Titulaire titulaire,
+                                 Lit lit) {
         soin.setDate_debut_soin(dateDebutSoin);
         soin.setDate_fin_soin(dateFinSoin);
         soin.setCommentaire(commentaire);
-        soin.setSalle(salle);
-        soin.setSejour(s);
+        soin.setLit(lit);
+        soin.setPatient(patient);
         soin.setTitulaire(titulaire);
         soin.setTypeSoin(typeSoin);
         
@@ -39,14 +39,14 @@ public class SoinService {
     }
     public static Boolean modifierSoin (Integer id_soin, Calendar dateDebutSoin,
                                  Calendar dateFinSoin,  String commentaire,
-                                 Sejour s, TypeSoin typeSoin, Titulaire titulaire,
-                                 Salle salle) {
+                                 Patient patient, TypeSoin typeSoin, Titulaire titulaire,
+                                 Lit lit) {
         Soin soin = SoinDAOImpl.getInstance().get(id_soin);
         soin.setDate_debut_soin(dateDebutSoin);
         soin.setDate_fin_soin(dateFinSoin);
         soin.setCommentaire(commentaire);
-        soin.setSalle(salle);
-        soin.setSejour(s);
+        soin.setLit(lit);
+        soin.setPatient(patient);
         soin.setTitulaire(titulaire);
         soin.setTypeSoin(typeSoin);
         

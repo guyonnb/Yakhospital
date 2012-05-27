@@ -21,7 +21,7 @@ public class Service implements Serializable {
     private Integer id_service;
     private String nom_service;
     private Set<Titulaire> titulaires;
-    private Set<Salle> salles;
+    private Set<Lit> lits;
     private Set<Service> servicesComp;
 
     public Service() {
@@ -30,7 +30,7 @@ public class Service implements Serializable {
     public Service(String nom_service) {
         this.nom_service = nom_service;
         this.titulaires = new HashSet<>();
-        this.salles = new HashSet<>();
+        this.lits = new HashSet<>();
         this.servicesComp = new HashSet<>();
     }
 
@@ -66,12 +66,12 @@ public class Service implements Serializable {
     @OneToMany(mappedBy = "service")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
 //    @JoinColumn(name = "id_service")
-    public Set<Salle> getSalles() {
-        return salles;
+    public Set<Lit> getLits() {
+        return lits;
     }
 
-    public void setSalles(Set<Salle> lst_salles) {
-        this.salles = lst_salles;
+    public void setLits(Set<Lit> lst_lits) {
+        this.lits = lst_lits;
     }
 
 //    @OneToMany(mappedBy = "service")
@@ -88,9 +88,9 @@ public class Service implements Serializable {
         this.titulaires.add(titulaire);
     }
     
-    public void ajouterSalle (Salle salle)
+    public void ajouterLit (Lit lit)
     {
-        this.salles.add(salle);
+        this.lits.add(lit);
     }
     public void ajouterServiceComp (Service service) {
         this.servicesComp.add(this);

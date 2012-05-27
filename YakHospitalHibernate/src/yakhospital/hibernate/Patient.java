@@ -31,8 +31,8 @@ public class Patient implements Serializable {
     private String tel;
     private String tel_urgence;
     private String note;
-    private Set<Sejour> sejours;
-
+    private Set<Soin> soins;
+    
     public Patient() {
     }
 
@@ -40,7 +40,7 @@ public class Patient implements Serializable {
         this.nom_patient = nom_patient;
         this.prenom_patient = prenom_patient;
         this.nss = nss;
-        this.sejours = new HashSet<>();
+        this.soins = new HashSet<>();
     }
 
     public Patient(String nom_patient, String prenom_patient,
@@ -64,7 +64,7 @@ public class Patient implements Serializable {
     public Patient(String nom_patient, String prenom_patient,
             String nss, Integer num_rue, String rue, String cp,
             String ville, String sexe, Calendar naissance, String tel,
-            String tel_urgence, String note, Set<Sejour> sejours) {
+            String tel_urgence, String note, Set<Soin> soins) {
         this.nom_patient = nom_patient;
         this.prenom_patient = prenom_patient;
         this.nss = nss;
@@ -77,7 +77,7 @@ public class Patient implements Serializable {
         this.tel = tel;
         this.tel_urgence = tel_urgence;
         this.note = note;
-        this.sejours = sejours;
+        this.soins = soins;
     }
 
     public String getCp() {
@@ -198,15 +198,15 @@ public class Patient implements Serializable {
     @OneToMany(mappedBy = "patient")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
 //    @JoinColumn(name = "id_patient")
-    public Set<Sejour> getSejours() {
-        return sejours;
+    public Set<Soin> getSoins() {
+        return soins;
     }
 
-    public void setSejours(Set<Sejour> sejours) {
-        this.sejours = sejours;
+    public void setSoins(Set<Soin> soins) {
+        this.soins = soins;
     }
-
-    public void ajouterSejour(Sejour sejour) {
-        sejours.add(sejour);
+    
+    public void ajouterSoin(Soin soin) {
+        soins.add(soin);
     }
 }

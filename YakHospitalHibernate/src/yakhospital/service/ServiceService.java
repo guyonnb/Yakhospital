@@ -4,10 +4,10 @@
  */
 package yakhospital.service;
 
-import yakhospital.hibernate.Salle;
+import yakhospital.hibernate.Lit;
 import yakhospital.hibernate.Service;
 import yakhospital.hibernate.Titulaire;
-import yakhospital.hibernate.dao.impl.SalleDAOImpl;
+import yakhospital.hibernate.dao.impl.LitDAOImpl;
 import yakhospital.hibernate.dao.impl.ServiceDAOImpl;
 import yakhospital.hibernate.dao.impl.TitulaireDAOImpl;
 
@@ -50,15 +50,15 @@ public class ServiceService {
         service.ajouterTitulaire(t);
         return ServiceDAOImpl.getInstance().update(service);
     }
-    public static Boolean ajouterSalle (Salle salle, Service service) {
-       salle.setService(service);
-       service.ajouterSalle(salle);
+    public static Boolean ajouterLit (Lit lit, Service service) {
+       lit.setService(service);
+       service.ajouterLit(lit);
        return ServiceDAOImpl.getInstance().update(service);
     }
-    public static Boolean ajouterSalle (Integer id_salle, Service service) {
-       Salle salle = SalleDAOImpl.getInstance().get(id_salle);
-       salle.setService(service);
-       service.ajouterSalle(salle);
+    public static Boolean ajouterLit (Integer id_lit, Service service) {
+       Lit lit = LitDAOImpl.getInstance().get(id_lit);
+       lit.setService(service);
+       service.ajouterLit(lit);
        return ServiceDAOImpl.getInstance().update(service);
     }
     public static Boolean ajouterServiceComp (Service serviceComp, Service service) {
