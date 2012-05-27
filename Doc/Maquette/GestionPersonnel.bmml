@@ -1,0 +1,97 @@
+<mockup version="1.0" skin="sketch" measuredW="1140" measuredH="482" mockupW="1108" mockupH="476">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="32" y="6" w="987" h="476" measuredW="614" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Accueil%20patients%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%2CGestionPersonnel%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2220%2C0%2C158%2C29%22%20href%3D%22Accueil%2520patients.bmml%22%20alt%3D%22Accueil%20patients%22%20id%3D%220_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22158%2C0%2C303%2C29%22%20href%3D%22GestionPersonnel.bmml%22%20alt%3D%22GestionPersonnel%22%20id%3D%220_1%22/%3E%0A</map>
+        <selectedIndex>1</selectedIndex>
+        <text>Gestion%20des%20patients%2C%20Gestion%20du%20personnel%2C%20Gestion%20structurelle%2C%20Import/Export</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Canvas" x="47" y="66" w="957" h="72" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="430" y="69" w="195" h="25" measuredW="151" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <text>Rechercher%20un%20titulaire</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="58" y="94" w="41" h="25" measuredW="31" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nom</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="123" y="93" w="105" h="-1" measuredW="79" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="295" y="95" w="63" h="25" measuredW="47" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Prenom</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="382" y="94" w="105" h="-1" measuredW="79" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="552" y="94" w="233" h="25" measuredW="159" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Num%E9ro%20de%20professionnel</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::TextInput" x="760" y="93" w="105" h="-1" measuredW="79" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::FieldSet" x="47" y="171" w="957" h="302" measuredW="200" measuredH="170" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Titulaires</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid" x="58" y="196" w="926" h="264" measuredW="459" measuredH="178" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>Nom%2C%20Prenom%2C%20N%B0%20pro%2C%20Poste%2C%20Service%0AGiacomo%2C%20Guilizzoni%20Peldi%2C%20123456789123%2C%20Interne%2C%20P%E9diatrie%0AGuido%2C%20Jack%2C%20123456789123%2C%20Secr%E9taire%2C%20Chirurgie%0AMarco%2C%20Botton%2C%20123456789123%2C%20Interne%2C%20P%E9diatrie%0AMariah%2C%20Maclachlan%2C%20123456789123%2C%20Interne%2C%20P%E9diatrie%0AValerie%2C%20Liberty%2C%20123456789123%2C%20Interne%2C%20P%E9diatrie</text>
+        <value>0</value>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="892" y="93" w="-1" h="-1" measuredW="95" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Rechercher</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="47" y="138" w="-1" h="-1" measuredW="134" measuredH="28" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>CreerTitulaire%26bm%3BCreerTitulaire.bmml%26bm%3BCreerTitulaire.bmml%26bm%3BCreerTitulaire.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2215%2C132%2C149%2C160%22%20href%3D%22CreerTitulaire.bmml%22%20alt%3D%22CreerTitulaire%22%20id%3D%2217%22/%3E</map>
+        <text>Nouveau%20Titulaire</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::StickyNote" x="1031" y="61" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Rafraichi%20le%20tableau</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Arrow" x="996" y="172" w="63" h="15" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>bottom</direction>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Arrow" x="984" y="88" w="63" h="15" measuredW="150" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>bottom</direction>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::ButtonBar" x="192" y="34" w="-1" h="-1" measuredW="308" measuredH="31" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>GestionPersonnel%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%2CGestionServices%26bm%3BGestionServices.bmml%26bm%3BGestionServices.bmml%26bm%3BGestionServices.bmml%2CGestionPostes%26bm%3BGestionPostes.bmml%26bm%3BGestionPostes.bmml%26bm%3BGestionPostes.bmml%2CGestionDroits%26bm%3BGestionDroits.bmml%26bm%3BGestionDroits.bmml%26bm%3BGestionDroits.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22160%2C28%2C249%2C59%22%20href%3D%22GestionPersonnel.bmml%22%20alt%3D%22GestionPersonnel%22%20id%3D%2226_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22251%2C28%2C333%2C59%22%20href%3D%22GestionServices.bmml%22%20alt%3D%22GestionServices%22%20id%3D%2226_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22335%2C28%2C404%2C59%22%20href%3D%22GestionPostes.bmml%22%20alt%3D%22GestionPostes%22%20id%3D%2226_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22406%2C28%2C474%2C59%22%20href%3D%22GestionDroits.bmml%22%20alt%3D%22GestionDroits%22%20id%3D%2226_3%22/%3E%0A</map>
+        <selectedIndex>2</selectedIndex>
+        <text>Titulaires%2C%20Services%2C%20Postes%2C%20Droits</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
