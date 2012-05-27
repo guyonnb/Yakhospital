@@ -7,7 +7,6 @@ package yakhospital.service;
 import java.util.List;
 import java.util.Set;
 import yakhospital.hibernate.Salle;
-import yakhospital.hibernate.Sejour;
 import yakhospital.hibernate.Service;
 import yakhospital.hibernate.Soin;
 import yakhospital.hibernate.dao.impl.SalleDAOImpl;
@@ -25,18 +24,26 @@ public class SalleService {
     //voir si on set le service à la créationd de la salle ou plus tard (je pense plus tard)
     public static Integer creerSalle(Integer nombreLits, String nomSalle, Service service) {
         Salle salle = new Salle(nombreLits, nomSalle, service);
+        ServiceService.ajouterSalle(salle, service);
         return SalleDAOImpl.getInstance().save(salle);
     }
     
     public static Integer creerSalle(Integer nombreLits, String nomSalle, Integer idService) {
         Salle salle = new Salle(nombreLits, nomSalle, ServiceDAOImpl.getInstance().get(idService));
+        ServiceService.ajouterSalle(salle, ServiceDAOImpl.getInstance().get(idService));
         return SalleDAOImpl.getInstance().save(salle);
     }
     
     public static Boolean modifierSalle(Salle salle, Integer nombreLits, String nomSalle, Service service) {
         salle.setNb_lits(nombreLits);
         salle.setNom_salle(nomSalle);
-        salle.setService(service);
+        if (salle.getService() != service)
+        {
+            if (salle.getService() != null)
+                salle.getService().getSalles().remove(salle);
+            service.getSalles().add(salle);
+            salle.setService(service);
+        }
         return SalleDAOImpl.getInstance().update(salle);
     }
     
@@ -49,6 +56,8 @@ public class SalleService {
     }
     
     public static void supprimerSalle (Salle salle) {
+        if (salle.getService() != null)
+            salle.getService().getSalles().remove(salle);
         SalleDAOImpl.getInstance().delete(salle.getId_salle());
     }
     
