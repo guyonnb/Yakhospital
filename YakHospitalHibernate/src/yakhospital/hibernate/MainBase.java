@@ -65,6 +65,7 @@ public class MainBase {
         Lit s6 = new Lit(5, "litCardiologie", Cardiologie);
         Lit s7 = new Lit(10, "litOrthopedie", Orthopedie);
         Lit s8 = new Lit(5, "litAR", ar);
+        
         /*
          * association service <-> lit
          */

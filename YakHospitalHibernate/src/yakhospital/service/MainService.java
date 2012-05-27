@@ -6,7 +6,6 @@ package yakhospital.service;
 
 import org.hibernate.Session;
 import yakhospital.hibernate.HibUtil;
-import yakhospital.hibernate.Titulaire;
 
 /**
  *
@@ -63,14 +62,14 @@ public class MainService {
         Integer idOrthopedie = ServiceService.creerService("Orthopedie");
         Integer idAr = ServiceService.creerService("AR");//Anesthésie et réanimation = salles de réveil
 
-        SalleService.creerSalle(15, "3", idPediatrie);
-        SalleService.creerSalle(2, "1", idPsychiatrie);
-        SalleService.creerSalle(8, "2", idNeurologie);
-        SalleService.creerSalle(4, "1", idCpre);
-        SalleService.creerSalle(3, "1", idCancerologie);
-        SalleService.creerSalle(5, "1", idCardiologie);
-        SalleService.creerSalle(10, "2", idOrthopedie);
-        SalleService.creerSalle(5, "1", idAr);
+        LitService.creerLit(15, "3", idPediatrie);
+        LitService.creerLit(2, "1", idPsychiatrie);
+        LitService.creerLit(8, "2", idNeurologie);
+        LitService.creerLit(4, "1", idCpre);
+        LitService.creerLit(3, "1", idCancerologie);
+        LitService.creerLit(5, "1", idCardiologie);
+        LitService.creerLit(10, "2", idOrthopedie);
+        LitService.creerLit(5, "1", idAr);
         
         Integer t1 = TitulaireService.creerTitulaire("Joel", "Yven", "123");
         Integer t2 = TitulaireService.creerTitulaire("Hisaishi", "Joe", "456");
