@@ -9,6 +9,8 @@ import yakhospital.hibernate.Poste;
 import yakhospital.hibernate.Service;
 import yakhospital.hibernate.Soin;
 import yakhospital.hibernate.Titulaire;
+import yakhospital.hibernate.dao.impl.PosteDAOImpl;
+import yakhospital.hibernate.dao.impl.ServiceDAOImpl;
 import yakhospital.hibernate.dao.impl.TitulaireDAOImpl;
 
 /**
@@ -56,10 +58,39 @@ public class TitulaireService {
         }
         return TitulaireDAOImpl.getInstance().update(titulaire);
     }
-    
+    // Assigne un poste au titulaire
+    public static Boolean modifierPosteTitulaire (Integer idTitulaire, Integer idPoste)
+    {
+        Titulaire titulaire = TitulaireDAOImpl.getInstance().get(idTitulaire);
+        Poste poste = PosteDAOImpl.getInstance().get(idPoste);
+        if (titulaire.getPoste() != poste)
+        {
+            if (titulaire.getPoste() != null)
+                titulaire.getPoste().getTitulaires().remove(titulaire);
+            poste.getTitulaires().add(titulaire);
+            titulaire.setPoste(poste);
+        }
+        return TitulaireDAOImpl.getInstance().update(titulaire);
+    }
     // Assigne un service au titulaire
     public static Boolean modifierServiceTitulaire (Titulaire titulaire, Service service)
     {
+        if (titulaire.getService() != service)
+        {
+            if (titulaire.getService() != null)
+                titulaire.getService().getTitulaires().remove(titulaire);
+            service.getTitulaires().add(titulaire);
+            titulaire.setService(service);
+        }
+        return TitulaireDAOImpl.getInstance().update(titulaire);
+    }
+    
+    // Assigne un service au titulaire
+    public static Boolean modifierServiceTitulaire (Integer idTitulaire, Integer idService)
+    {
+        Titulaire titulaire = TitulaireDAOImpl.getInstance().get(idTitulaire);
+        Service service = ServiceDAOImpl.getInstance().get(idService);
+        
         if (titulaire.getService() != service)
         {
             if (titulaire.getService() != null)
