@@ -4,13 +4,17 @@
  */
 package yakhospital.service;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import yakhospital.hibernate.Lit;
 import yakhospital.hibernate.Service;
 import yakhospital.hibernate.Soin;
 import yakhospital.hibernate.dao.impl.LitDAOImpl;
 import yakhospital.hibernate.dao.impl.ServiceDAOImpl;
+import yakhospital.service.tools.ComparatorDate;
 
 /**
  *
@@ -62,5 +66,49 @@ public class LitService {
         soin.setLit(lit);
         lit.ajouterSoin(soin);
         return LitDAOImpl.getInstance().update(lit);
+    }
+    
+    public static List<CreneauService> rechercherCreneauSalle(Service service, Calendar dateDebut, int duree) {
+        
+        List<CreneauService> listeCreneaux = new ArrayList<>();
+        Set<Lit> lits = new TreeSet<>();
+	Set<Soin> soins;
+        Calendar dateFin = null;
+        Calendar creneauDebut = null;
+        int dureeCreneau = 0;
+        
+        lits = service.getLits();
+	// TODO : Si aucune salle dispo, voir les services compatibles
+
+	for (Lit lit : lits) {
+            soins = lit.getSoins();
+            
+            for (Soin soin : soins) {
+                if (soin.getDate_fin_soin().before(dateDebut))
+                {
+                    creneauDebut = soin.getDate_fin_soin();
+                    break;
+                }
+                dateFin = dateDebut;
+                dateFin.add(Calendar.MINUTE, duree);
+                if (dateFin.before(soin.getDate_debut_soin()))
+                {
+                    dureeCreneau = ComparatorDate.calculateDifference
+                            (creneauDebut, soin.getDate_debut_soin());
+                }
+                else
+                {
+                    creneauDebut = soin.getDate_fin_soin();
+                    break;
+                }
+                
+                CreneauService creneau = new CreneauService(lit, creneauDebut, dureeCreneau);
+                listeCreneaux.add(creneau);
+                
+                creneauDebut = soin.getDate_fin_soin();
+                dureeCreneau = 0;
+            }
+        }
+        return listeCreneaux;
     }
 }
