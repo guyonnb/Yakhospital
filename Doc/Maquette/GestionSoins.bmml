@@ -1,30 +1,23 @@
-<mockup version="1.0" skin="sketch" measuredW="1313" measuredH="482" mockupW="1281" mockupH="476">
+<mockup version="1.0" skin="sketch" measuredW="1300" measuredH="482" mockupW="1268" mockupH="476">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="32" y="6" w="987" h="476" measuredW="613" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
-      <controlProperties>
-        <hrefs>Accueil%20patients%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%2CGestionPersonnel%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%2C%2C</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2220%2C0%2C158%2C29%22%20href%3D%22Accueil%2520patients.bmml%22%20alt%3D%22Accueil%20patients%22%20id%3D%220_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22158%2C0%2C298%2C29%22%20href%3D%22GestionPersonnel.bmml%22%20alt%3D%22GestionPersonnel%22%20id%3D%220_1%22/%3E%0A</map>
-        <selectedIndex>2</selectedIndex>
-        <text>Gestion%20des%20patients%2C%20Gestion%20du%20personnel%2C%20Gestion%20structurelle%2C%20Import/Export</text>
-      </controlProperties>
-    </control>
     <control controlID="13" controlTypeID="com.balsamiq.mockups::FieldSet" x="47" y="115" w="957" h="302" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Salles</text>
+        <text>Types%20de%20soin</text>
       </controlProperties>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid" x="58" y="140" w="455" h="264" measuredW="246" measuredH="118" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid" x="58" y="140" w="455" h="264" measuredW="163" measuredH="118" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>0</selectedIndex>
-        <text>Service%2C%20Nom%2C%20Nombre%20de%20lits%0AP%E9diatrie%2C%20P09%2C%205%0AChirurgie%2C%20S03%2C%202%0ARodiologie%2C%20M8%2C%209</text>
+        <text>Nom%20du%20type%20de%20soin%0AColoscopie%0AConsultation%0AFibroscopie</text>
         <value>0</value>
         <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="47" y="82" w="-1" h="-1" measuredW="110" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="47" y="82" w="-1" h="-1" measuredW="158" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2215%2C132%2C149%2C160%22%20href%3D%22CreationPatient1.bmml%22%20alt%3D%22CreationPatient1%22%20id%3D%2217%22/%3E</map>
-        <text>Nouvelle%20salle</text>
+        <href>CreationSoin%26bm%3BCreationSoin.bmml%26bm%3BCreationSoin.bmml%26bm%3BCreationSoin.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2215%2C76%2C173%2C104%22%20href%3D%22CreationSoin.bmml%22%20alt%3D%22CreationSoin%22%20id%3D%2217%22/%3E</map>
+        <text>Nouveau%20type%20de%20soin</text>
       </controlProperties>
     </control>
     <control controlID="23" controlTypeID="com.balsamiq.mockups::StickyNote" x="1031" y="61" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="4" locked="false" isInGroup="-1">
@@ -43,68 +36,66 @@
       </controlProperties>
     </control>
     <control controlID="27" controlTypeID="com.balsamiq.mockups::Canvas" x="551" y="140" w="433" h="264" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1"/>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="566" y="159" w="-1" h="-1" measuredW="35" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::ButtonBar" x="334" y="36" w="-1" h="-1" measuredW="128" measuredH="31" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Salle</text>
-      </controlProperties>
-    </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::TextInput" x="679" y="156" w="-1" h="-1" measuredW="37" measuredH="29" zOrder="9" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>P09</text>
-      </controlProperties>
-    </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="566" y="263" w="-1" h="-1" measuredW="69" measuredH="28" zOrder="10" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Valider</text>
-      </controlProperties>
-    </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Button" x="657" y="263" w="-1" h="-1" measuredW="72" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Annuler</text>
-      </controlProperties>
-    </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::ButtonBar" x="334" y="36" w="-1" h="-1" measuredW="128" measuredH="31" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <hrefs>%2CGestionSalles%26bm%3BGestionSalles.bmml%26bm%3BGestionSalles.bmml%26bm%3BGestionSalles.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22366%2C30%2C432%2C61%22%20href%3D%22GestionSalles.bmml%22%20alt%3D%22GestionSalles%22%20id%3D%2233_0%22/%3E%0A</map>
+        <hrefs>GestionSoins%26bm%3BGestionSoins.bmml%26bm%3BGestionSoins.bmml%26bm%3BGestionSoins.bmml%2CGestionSalles%26bm%3BGestionSalles.bmml%26bm%3BGestionSalles.bmml%26bm%3BGestionSalles.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22302%2C30%2C364%2C61%22%20href%3D%22GestionSoins.bmml%22%20alt%3D%22GestionSoins%22%20id%3D%2233_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22366%2C30%2C432%2C61%22%20href%3D%22GestionSalles.bmml%22%20alt%3D%22GestionSalles%22%20id%3D%2233_1%22/%3E%0A</map>
         <selectedIndex>0</selectedIndex>
         <text>Soins%2C%20Salles</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="566" y="190" w="184" h="25" measuredW="52" measuredH="25" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Arrow" x="191" y="215" w="371" h="52" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Service</text>
+        <direction>bottom</direction>
       </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::ComboBox" x="679" y="189" w="202" h="-1" measuredW="88" measuredH="25" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::StickyNote" x="466" y="230" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>P%E9diatrie</text>
+        <text>Rafraichi%20le%20tableau</text>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="566" y="222" w="-1" h="-1" measuredW="99" measuredH="25" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="566" y="160" w="-1" h="-1" measuredW="31" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Nombre%20de%20lits</text>
+        <text>Soin</text>
       </controlProperties>
     </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::NumericStepper" x="679" y="222" w="-1" h="-1" measuredW="41" measuredH="26" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::TextInput" x="633" y="157" w="-1" h="-1" measuredW="76" measuredH="29" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>5</text>
+        <text>Coloscopie</text>
       </controlProperties>
     </control>
-    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="744" y="263" w="-1" h="-1" measuredW="87" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Button" x="566" y="200" w="-1" h="-1" measuredW="83" measuredH="28" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Renommer</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="664" y="200" w="-1" h="-1" measuredW="72" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Annuler</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Button" x="751" y="201" w="-1" h="-1" measuredW="87" measuredH="28" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Supprimer</text>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Arrow" x="824" y="281" w="289" h="10" measuredW="150" measuredH="100" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Alert" x="1100" y="183" w="-1" h="-1" measuredW="200" measuredH="145" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Suppression%0AVoulez%20vous%20vraiment%20supprimer%20cette%20service%3F%0ANo%2C%20Yes</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Arrow" x="832" y="215" w="277" h="52" measuredW="150" measuredH="100" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <direction>top</direction>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Alert" x="1113" y="180" w="-1" h="-1" measuredW="200" measuredH="145" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::TabBar" x="32" y="6" w="987" h="476" measuredW="613" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Suppression%0AVoulez%20vous%20vraiment%20supprimer%20cette%20salle%3F%0ANo%2C%20Yes</text>
+        <hrefs>Accueil%20patients%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%26bm%3BAccueil%20patients.bmml%2CGestionPersonnel%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%2CGestionSoins%26bm%3BGestionSoins.bmml%26bm%3BGestionSoins.bmml%26bm%3BGestionSoins.bmml%2CImport-Export%26bm%3BImport-Export.bmml%26bm%3BImport-Export.bmml%26bm%3BImport-Export.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2220%2C0%2C158%2C29%22%20href%3D%22Accueil%2520patients.bmml%22%20alt%3D%22Accueil%20patients%22%20id%3D%2251_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22158%2C0%2C298%2C29%22%20href%3D%22GestionPersonnel.bmml%22%20alt%3D%22GestionPersonnel%22%20id%3D%2251_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22298%2C0%2C436%2C29%22%20href%3D%22GestionSoins.bmml%22%20alt%3D%22GestionSoins%22%20id%3D%2251_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22436%2C0%2C539%2C29%22%20href%3D%22Import-Export.bmml%22%20alt%3D%22Import-Export%22%20id%3D%2251_3%22/%3E%0A</map>
+        <selectedIndex>2</selectedIndex>
+        <text>Gestion%20des%20patients%2C%20Gestion%20du%20personnel%2C%20Gestion%20structurelle%2C%20Import/Export</text>
       </controlProperties>
     </control>
   </controls>
