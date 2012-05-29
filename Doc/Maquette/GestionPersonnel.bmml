@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="1140" measuredH="482" mockupW="1108" mockupH="476">
+<mockup version="1.0" skin="sketch" measuredW="1019" measuredH="482" mockupW="987" mockupH="476">
   <controls>
     <control controlID="5" controlTypeID="com.balsamiq.mockups::Canvas" x="47" y="66" w="957" h="72" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="430" y="69" w="195" h="25" measuredW="151" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
@@ -62,22 +62,13 @@
         <text>Nouveau%20Titulaire</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::StickyNote" x="1031" y="61" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Rafraichi%20le%20tableau</text>
-      </controlProperties>
-    </control>
-    <control controlID="24" controlTypeID="com.balsamiq.mockups::Arrow" x="996" y="172" w="63" h="15" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Arrow" x="892" y="119" w="53" h="110" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <direction>bottom</direction>
+        <text>Rafraichit%20le%20tableau</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Arrow" x="984" y="88" w="63" h="15" measuredW="150" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
-      <controlProperties>
-        <direction>bottom</direction>
-      </controlProperties>
-    </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::ButtonBar" x="192" y="34" w="-1" h="-1" measuredW="308" measuredH="31" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::ButtonBar" x="192" y="34" w="-1" h="-1" measuredW="308" measuredH="31" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <hrefs>GestionPersonnel%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%26bm%3BGestionPersonnel.bmml%2CGestionServices%26bm%3BGestionServices.bmml%26bm%3BGestionServices.bmml%26bm%3BGestionServices.bmml%2CGestionPostes%26bm%3BGestionPostes.bmml%26bm%3BGestionPostes.bmml%26bm%3BGestionPostes.bmml%2CGestionDroits%26bm%3BGestionDroits.bmml%26bm%3BGestionDroits.bmml%26bm%3BGestionDroits.bmml</hrefs>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22160%2C28%2C249%2C59%22%20href%3D%22GestionPersonnel.bmml%22%20alt%3D%22GestionPersonnel%22%20id%3D%2226_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22251%2C28%2C333%2C59%22%20href%3D%22GestionServices.bmml%22%20alt%3D%22GestionServices%22%20id%3D%2226_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22335%2C28%2C404%2C59%22%20href%3D%22GestionPostes.bmml%22%20alt%3D%22GestionPostes%22%20id%3D%2226_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22406%2C28%2C474%2C59%22%20href%3D%22GestionDroits.bmml%22%20alt%3D%22GestionDroits%22%20id%3D%2226_3%22/%3E%0A</map>

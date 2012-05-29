@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="1140" measuredH="463" mockupW="1108" mockupH="457">
+<mockup version="1.0" skin="sketch" measuredW="1019" measuredH="463" mockupW="987" mockupH="457">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="32" y="6" w="987" h="457" measuredW="615" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -70,19 +70,10 @@
         <text>Nouveau%20patient</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::StickyNote" x="1031" y="47" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Arrow" x="929" y="107" w="21" h="147" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Rafraichi%20le%20tableau</text>
-      </controlProperties>
-    </control>
-    <control controlID="19" controlTypeID="com.balsamiq.mockups::Arrow" x="996" y="158" w="63" h="15" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <direction>bottom</direction>
-      </controlProperties>
-    </control>
-    <control controlID="20" controlTypeID="com.balsamiq.mockups::Arrow" x="984" y="74" w="63" h="15" measuredW="150" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
-      <controlProperties>
-        <direction>bottom</direction>
+        <direction>top</direction>
+        <text>Rafraichit%20le%20tableau</text>
       </controlProperties>
     </control>
   </controls>
